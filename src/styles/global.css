@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Mjolnir';
+  src: url(../fonts/Mjölnir/Mjolnir.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Nordica';
+  src: url(../fonts/linotype-nordica/linotypenordica-regular.ttf) format('truetype');
+}
+
 body {
-  @apply bg-main bg-cover;
+  @apply bg-gray-normal bg-cover bg-no-repeat bg-fixed;
 }
