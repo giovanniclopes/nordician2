@@ -1,6 +1,5 @@
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo2 from "/public/logo2.png";
 
 const navigation = [
@@ -54,7 +53,7 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-900 bg-opacity-50 text-white font-nordica text-2xl"
+                            ? "bg-red-main bg-opacity-30 text-white font-nordica text-2xl"
                             : "text-gray-300 font-nordica text-2xl hover:bg-gray-900 hover:bg-opacity-50 hover:text-white",
                           "px-3 py-2 rounded-md font-medium"
                         )}
@@ -78,8 +77,8 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      ? "bg-red-main bg-opacity-30 text-white"
+                      : "text-gray-300 hover:bg-red-main hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}

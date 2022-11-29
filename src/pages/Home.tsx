@@ -8,7 +8,7 @@ export function Home() {
         <div className="flex items-center justify-center py-40 sm:py-32">
           <div className="flex flex-col items-center justify-center gap-8 font-nordica font-bold">
             <div className="flex flex-col items-center justify-center gap-4">
-              <h1 className="text-white text-8xl text-center sm:text-5xl">
+              <h1 className="text-white text-8xl text-center mbl:text-5xl">
                 Boas-vindas ao Mundo Nórdico
               </h1>
             </div>
@@ -18,12 +18,12 @@ export function Home() {
               </p>
               <div className="flex flex-row gap-6 items-center justify-center">
                 <a href="">
-                  <button className="bg-red-main border-[3px] border-transparent rounded-md text-3xl py-4 px-14 transition-all hover:bg-opacity-80 sm:text-2xl sm:px-9 sm:py-3">
+                  <button className="bg-red-main border-[3px] border-transparent rounded-md text-3xl py-4 px-14 transition-all hover:bg-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3">
                     Mitologia
                   </button>
                 </a>
                 <a href="">
-                  <button className="bg-transparent border-[3px] border-red-main rounded-md text-red-main text-3xl py-4 px-14 transition-all hover:border-opacity-80 hover:text-opacity-80 sm:text-2xl sm:px-9 sm:py-3">
+                  <button className="bg-transparent border-[3px] border-red-main rounded-md text-red-main text-3xl py-4 px-14 transition-all hover:border-opacity-80 hover:text-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3">
                     Realidade
                   </button>
                 </a>
