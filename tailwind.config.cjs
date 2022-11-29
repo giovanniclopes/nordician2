@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "mbl": { max: "630px" },
+        mbl: { max: "630px" }, // mbl == mobile
         // => @media (max-width: 630px) { ... }
       },
       backgroundImage: {
@@ -17,10 +17,12 @@ module.exports = {
       },
       colors: {
         gray: {
-          normal: "#131313",
+          400: "#373c3b",
+          500: "#131313",
         },
         red: {
-          main: "#B70000",
+          400: "#ae3335",
+          500: "#B70000",
         },
       },
     },

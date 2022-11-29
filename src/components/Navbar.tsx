@@ -3,9 +3,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo2 from "../assets/logo2.png";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "Mitologia", href: "#", current: false },
-  { name: "Realidade", href: "#", current: false },
+  { name: "Home", href: "/", current: true },
+  { name: "Mitologia", href: "/mythology", current: false },
+  { name: "Realidade", href: "/reality", current: false },
 ];
 
 function classNames(...classes: string[]) {
