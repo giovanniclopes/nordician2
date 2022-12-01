@@ -1,11 +1,9 @@
-import { ChatBubbleBottomCenterIcon } from "@heroicons/react/24/outline";
-import Navbar2 from "../components/Navbar2";
 import Navbar from "../components/Navbar";
 
 export function Home() {
   return (
     <>
-      <Navbar2 />
+      <Navbar />
       <div className="h-fit bg-main bg-cover">
         <div className="flex items-center justify-center py-40 sm:py-32">
           <div className="flex flex-col items-center justify-center gap-12 font-nordica font-bold">
@@ -32,7 +30,6 @@ export function Home() {
               </div>
             </div>
           </div>
-          <div></div>
         </div>
       </div>
     </>

@@ -14,9 +14,11 @@ module.exports = {
       fontFamily: {
         mjolnir: "Mjolnir, Arial, sans-serif",
         nordica: "Nordica, Arial, sans-serif",
+        poppins: "Poppins, sans-serif",
       },
       colors: {
         gray: {
+          100: "#FFFCF8",
           400: "#373c3b",
           500: "#131313",
         },

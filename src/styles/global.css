@@ -13,5 +13,5 @@
 }
 
 body {
-  @apply bg-gray-500 bg-cover bg-no-repeat bg-fixed;
+  @apply bg-gray-500 text-gray-200 font-poppins bg-cover bg-no-repeat bg-fixed;
 }
