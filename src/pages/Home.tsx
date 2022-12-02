@@ -67,7 +67,7 @@ export function Home() {
               </p>
             </div>
             <div>
-              <button className="flex items-center justify-center w-2/3 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 hover:bg-opacity-80">
+              <button className="flex items-center justify-center w-2/3 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 transition-all hover:bg-opacity-80">
                 Ver Jogos
               </button>
             </div>

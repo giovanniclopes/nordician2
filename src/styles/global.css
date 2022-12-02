@@ -15,3 +15,23 @@
 body {
   @apply bg-gray-500 text-gray-200 font-nordica text-2xl -tracking-tighter leading-relaxed bg-cover bg-no-repeat bg-fixed;
 }
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #D42121 #1a1a1a;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 13px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #272727;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #D42121;
+  border-radius: 020px;
+  border: 0px solid #3a3131;
+}
