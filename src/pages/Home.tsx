@@ -5,7 +5,7 @@ export function Home() {
   return (
     <>
       <Navbar />
-      <div id="section1" className="h-fit bg-main bg-cover pt-32">
+      <div id="section1" className="h-fit bg-main bg-cover pt-32 mbl:pt-16">
         <div className="flex items-center justify-center py-40 sm:py-32">
           <div className="flex flex-col items-center justify-center gap-12 font-nordica font-bold">
             <div className="flex flex-col items-center justify-center gap-4">
