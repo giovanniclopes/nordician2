@@ -1,3 +1,4 @@
+import GamesIllustration from "../assets/GamesIllustration.gif";
 import Navbar from "../components/Navbar";
 
 export function Home() {
@@ -34,7 +35,7 @@ export function Home() {
       </div>
       <div
         id="section2"
-        className="flex flex-col items-center justify-center gap-6 p-12 font-nordica"
+        className="flex flex-col items-center justify-center gap-6 p-12"
       >
         <hr className="border border-maroon-100 w-2/3 mb-10" />
         <p className="text-center w-3/4">
@@ -54,6 +55,27 @@ export function Home() {
           solitação que você irá receber do Google Tradutor.
         </p>
         <hr className="border border-maroon-100 w-2/3 mt-10" />
+      </div>
+      <div id="section3">
+        <div className="flex flex-row">
+          <div>
+            <div>
+              <h1 className="text-3xl">Jogos Nórdicos</h1>
+              <p>
+                Aqui coloquei diversos jogos digitais, que tem como tema
+                principal o mundo viking.
+              </p>
+            </div>
+            <div>
+              <button className="flex items-center justify-center bg-red-400 text-gray-500 rounded p-5">
+                Ver Jogos
+              </button>
+            </div>
+          </div>
+          <div>
+            <img src={GamesIllustration} alt="" />
+          </div>
+        </div>
       </div>
     </>
   );
