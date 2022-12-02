@@ -13,5 +13,6 @@
 }
 
 body {
-  @apply bg-gray-500 text-gray-200 font-poppins bg-cover bg-no-repeat bg-fixed;
+  word-spacing: 10px;
+  @apply bg-gray-500 text-gray-200 font-poppins text-2xl -tracking-tighter leading-relaxed bg-cover bg-no-repeat bg-fixed;
 }
