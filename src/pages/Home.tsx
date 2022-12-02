@@ -60,14 +60,14 @@ export function Home() {
         <div className="flex flex-row justify-center items-center gap-52 mbl:flex-col-reverse mbl:gap-20">
           <div className="flex flex-col gap-10 mbl:items-center mbl:text-center">
             <div className="flex flex-col gap-7 w-96">
-              <h1 className="text-6xl text-maroon-100 mbl:text-5xl">Jogos Nórdicos</h1>
+              <h1 className="text-7xl text-maroon-100 mbl:text-5xl">Jogos Nórdicos</h1>
               <p className="w-full">
                 Aqui coloquei diversos jogos digitais, que tem como tema
                 principal o mundo viking.
               </p>
             </div>
             <div>
-              <button className="flex items-center justify-center w-1/2 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 hover:bg-opacity-80">
+              <button className="flex items-center justify-center w-2/3 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 hover:bg-opacity-80">
                 Ver Jogos
               </button>
             </div>
