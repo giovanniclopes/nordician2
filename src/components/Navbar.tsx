@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between h-24 py-3 px-8 mx-auto bg-gradient text-white md:items-center mbl:px-4">
+    <nav className="fixed w-full flex items-center justify-between h-24 py-3 px-8 mx-auto bg-gradient text-white border-b-2 border-red-400 md:items-center mbl:px-4">
       <Link to="/">
         <img className="mbl:w-8" src={Logo2} width={40} alt="Nordician Logo" />
       </Link>
