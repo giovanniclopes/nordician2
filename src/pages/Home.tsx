@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import GamesIllustration from "../assets/GamesIllustration.gif";
 import Navbar from "../components/Navbar";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 export function Home() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <div id="section1" className="h-fit bg-main bg-cover pt-32 mbl:pt-12">
         <div className="flex items-center justify-center py-40 sm:py-32">
@@ -19,25 +21,22 @@ export function Home() {
                 Escolha uma opção para saber mais
               </p>
               <div className="flex flex-row gap-6 items-center justify-center">
-                <a href="">
+                <Link to="/mythology">
                   <button className="bg-red-400 text-gray-500 border-[3px] border-transparent rounded-md text-3xl py-4 px-14 transition-all hover:bg-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3">
                     Mitologia
                   </button>
-                </a>
-                <a href="">
+                </Link>
+                <Link to="/reality">
                   <button className="bg-transparent border-[3px] border-red-400 rounded-md text-red-400 text-3xl py-4 px-14 transition-all hover:border-opacity-80 hover:text-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3">
                     Realidade
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        id="section2"
-        className="flex flex-col items-center justify-center gap-6 p-12"
-      >
+      <div id="section2" className="flex flex-col items-center justify-center gap-6 p-12">
         <hr className="border border-maroon-100 w-2/3 mb-10" />
         <p className="text-center w-3/4 mbl:w-auto">
           Olá viajante, bem vinda(o) ao Nordician! <br />
@@ -82,10 +81,7 @@ export function Home() {
           </div>
         </div>
       </div>
-      <div
-        id="section4"
-        className="flex flex-col justify-center p-16"
-      >
+      <div id="section4" className="flex flex-col justify-center mt-10 p-16">
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center justify-center gap-3">
             <h3 className="text-6xl">Alguma dúvida?</h3>
@@ -96,36 +92,50 @@ export function Home() {
             <form
               action="https://formsubmit.co/giovanniclopes@gmail.com"
               method="post"
-              className="flex flex-col w-full"
+              className="flex flex-col gap-7 w-full"
             >
-              <label htmlFor="name">Nomes <span className="text-red-400">*</span></label>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="name">
+                  Nome <span className="text-red-400">*</span>
+                </label>
+                <input
+                  className="bg-gray-500 p-2 px-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-3 focus:border focus:border-red-400 focus:rounded-lg"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="me diga seu nome"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="email">
+                  Email <span className="text-red-400">*</span>
+                </label>
+                <input
+                  className="bg-gray-500 p-2 px-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-3 focus:border focus:border-red-400 focus:rounded-lg"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="me diga seu email"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="message">
+                  Sua mensagem <span className="text-red-400">*</span>
+                </label>
+                <textarea
+                  className="bg-gray-500 p-2 px-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-3 focus:border focus:border-red-400 focus:rounded-lg"
+                  name="message"
+                  id="message"
+                  cols={30}
+                  rows={2}
+                  placeholder="Olá! Eu gostaria de falar sobre {assunto}."
+                  required
+                ></textarea>
+              </div>
               <input
-                className="w-full"
-                type="text"
-                name="name"
-                id="name"
-                placeholder="me diga seu nome"
-                required
-              />
-              <label htmlFor="email">Emails <span className="text-red-400">*</span></label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="me diga seu email"
-                required
-              />
-              <label htmlFor="message">Sua mensagems <span className="text-red-400">*</span></label>
-              <textarea
-                name="message"
-                id="message"
-                cols={30}
-                rows={5}
-                placeholder="Olá! Eu gostaria de falar sobre {assunto}."
-                required
-              ></textarea>
-              <input
-                className="bg-red-400"
+                className="bg-red-400 p-3 cursor-pointer rounded hover:bg-opacity-75"
                 type="submit"
                 value="Enviar mensagem"
               />
