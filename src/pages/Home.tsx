@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GamesIllustration from "../assets/GamesIllustration.gif";
 import Navbar from "../components/Navbar";
 
@@ -5,7 +6,7 @@ export function Home() {
   return (
     <>
       <Navbar />
-      <div id="section1" className="h-fit bg-main bg-cover pt-32 mbl:pt-16">
+      <div id="section1" className="h-fit bg-main bg-cover pt-32 mbl:pt-12">
         <div className="flex items-center justify-center py-40 sm:py-32">
           <div className="flex flex-col items-center justify-center gap-12 font-nordica font-bold">
             <div className="flex flex-col items-center justify-center gap-4">
@@ -60,20 +61,53 @@ export function Home() {
         <div className="flex flex-row justify-center items-center gap-52 mbl:flex-col-reverse mbl:gap-20">
           <div className="flex flex-col gap-10 mbl:items-center mbl:text-center">
             <div className="flex flex-col gap-7 w-96">
-              <h1 className="text-7xl text-maroon-100 mbl:text-5xl">Jogos Nórdicos</h1>
+              <h1 className="text-7xl text-maroon-100 mbl:text-5xl">
+                Jogos Nórdicos
+              </h1>
               <p className="w-full">
                 Aqui coloquei diversos jogos digitais, que tem como tema
                 principal o mundo viking.
               </p>
             </div>
-            <div>
-              <button className="flex items-center justify-center w-2/3 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 transition-all hover:bg-opacity-80">
-                Ver Jogos
-              </button>
+            <div className="w-fit">
+              <Link to="/games">
+                <button className="flex items-center justify-center w-60 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 transition-all hover:bg-opacity-80">
+                  Ver Jogos
+                </button>
+              </Link>
             </div>
           </div>
           <div>
             <img className="mbl:w-80" src={GamesIllustration} alt="" />
+          </div>
+        </div>
+      </div>
+      <div id="section4" className="p-16">
+        <div>
+          <div>
+            <h3>Alguma dúvida?</h3>
+            <p>Entre em contato</p>
+            <hr className="border border-red-400 w-16" />
+          </div>
+          <div>
+            <form
+              action="https://formsubmit.co/giovanniclopes@gmail.com"
+              method="post"
+            >
+              <label htmlFor="name">Nome:</label>
+              <input type="text" name="name" id="name" placeholder="me diga seu nome" />
+              <label htmlFor="email">Email:</label>
+              <input type="email" name="email" id="email" placeholder="me diga seu email" />
+              <label htmlFor="message">Sua mensagem:</label>
+              <textarea
+                name="message"
+                id="message"
+                cols={30}
+                rows={10}
+                placeholder="Olá! Eu gostaria de falar sobre {assunto}."
+              ></textarea>
+              <input type="submit" value="Enviar mensagem" />
+            </form>
           </div>
         </div>
       </div>
