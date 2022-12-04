@@ -82,31 +82,54 @@ export function Home() {
           </div>
         </div>
       </div>
-      <div id="section4" className="p-16">
-        <div>
-          <div>
-            <h3>Alguma dúvida?</h3>
+      <div
+        id="section4"
+        className="flex flex-col justify-center p-16"
+      >
+        <div className="flex flex-col items-center gap-12">
+          <div className="flex flex-col items-center justify-center gap-3">
+            <h3 className="text-6xl">Alguma dúvida?</h3>
             <p>Entre em contato</p>
-            <hr className="border border-red-400 w-16" />
+            <hr className="border border-red-400 w-24" />
           </div>
-          <div>
+          <div className="max-w-3xl w-full">
             <form
               action="https://formsubmit.co/giovanniclopes@gmail.com"
               method="post"
+              className="flex flex-col w-full"
             >
-              <label htmlFor="name">Nome:</label>
-              <input type="text" name="name" id="name" placeholder="me diga seu nome" />
-              <label htmlFor="email">Email:</label>
-              <input type="email" name="email" id="email" placeholder="me diga seu email" />
-              <label htmlFor="message">Sua mensagem:</label>
+              <label htmlFor="name">Nomes <span className="text-red-400">*</span></label>
+              <input
+                className="w-full"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="me diga seu nome"
+                required
+              />
+              <label htmlFor="email">Emails <span className="text-red-400">*</span></label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="me diga seu email"
+                required
+              />
+              <label htmlFor="message">Sua mensagems <span className="text-red-400">*</span></label>
               <textarea
                 name="message"
                 id="message"
                 cols={30}
-                rows={10}
+                rows={5}
                 placeholder="Olá! Eu gostaria de falar sobre {assunto}."
+                required
               ></textarea>
-              <input type="submit" value="Enviar mensagem" />
+              <input
+                className="bg-red-400"
+                type="submit"
+                value="Enviar mensagem"
+              />
+              <input type="hidden" name="_template" value="table"></input>
             </form>
           </div>
         </div>
