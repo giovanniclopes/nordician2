@@ -8,7 +8,7 @@ function Navbar() {
   const [fix, setFix] = useState(false);
 
   function setFixed() {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 650) {
       setFix(true);
     } else {
       setFix(false);
@@ -26,8 +26,8 @@ function Navbar() {
       <nav
         className={
           fix
-            ? "fixed w-full flex items-center justify-between h-24 py-3 px-8 mx-auto bg-gradient text-white border-b-2 border-red-400 transition-all md:items-center mbl:px-4"
-            : "fixed w-full flex items-center justify-between h-24 py-3 px-8 mx-auto bg-transparent text-white border-b-2 border-transparent transition-all md:items-center mbl:px-4"
+            ? "fixed top-0 w-full flex items-center justify-between h-24 py-3 px-8 mx-auto backdrop-blur-sm bg-black/80 text-white border-b-2 border-red-400 transition-all md:items-center mbl:px-4"
+            : "fixed  top-0 w-full flex items-center justify-between h-24 py-3 px-8 mx-auto backdrop-blur-0 bg-gray-600/20 text-white border-b-2 border-transparent transition-all md:items-center mbl:px-4"
         }
       >
         <Link to="/">
