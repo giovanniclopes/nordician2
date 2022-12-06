@@ -9,6 +9,7 @@ module.exports = {
       },
       backgroundImage: {
         main: "url(/src/assets/background.webp)",
+        contact: "url(/src/assets/bg-contact.webp)",
         gradient: "linear-gradient(-150deg, #131313, #000000, #131313)",
       },
       fontFamily: {

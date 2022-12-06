@@ -81,14 +81,14 @@ export function Home() {
           </div>
         </div>
       </div>
-      <div id="section4" className="flex flex-col justify-center mt-10 p-16">
+      <div id="section4" className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover">
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center justify-center gap-3">
             <h3 className="text-6xl">Alguma dúvida?</h3>
             <p>Entre em contato</p>
             <hr className="border border-red-400 w-24" />
           </div>
-          <div className="max-w-3xl w-full">
+          <div className="max-w-xl w-full">
             <form
               action="https://formsubmit.co/giovanniclopes@gmail.com"
               method="post"
@@ -99,7 +99,7 @@ export function Home() {
                   Nome <span className="text-red-400">*</span>
                 </label>
                 <input
-                  className="bg-gray-500 p-2 px-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-3 focus:border focus:border-red-400 focus:rounded-lg"
+                  className="bg-gray-500 p-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-4 focus:border focus:border-red-400 focus:rounded-lg"
                   type="text"
                   name="name"
                   id="name"
@@ -112,7 +112,7 @@ export function Home() {
                   Email <span className="text-red-400">*</span>
                 </label>
                 <input
-                  className="bg-gray-500 p-2 px-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-3 focus:border focus:border-red-400 focus:rounded-lg"
+                  className="bg-gray-500 p-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-4 focus:border focus:border-red-400 focus:rounded-lg"
                   type="email"
                   name="email"
                   id="email"
