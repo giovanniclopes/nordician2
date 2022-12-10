@@ -3,7 +3,7 @@ import { useState } from "react";
 import Logo2 from "../assets/logo2.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function Navbar() {
+export function Navbar() {
   const [togglerNav, setTogglerNav] = useState(false);
   const [fix, setFix] = useState(false);
 

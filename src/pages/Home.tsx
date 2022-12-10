@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import GamesIllustration from "../assets/GamesIllustration.gif";
 import Navbar from "../components/Navbar";
 import { ScrollToTop } from "../components/ScrollToTop";
+import { Button } from "./../components/Button";
 
 export function Home() {
   return (
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="section1" className="h-fit bg-main bg-cover pt-32 mbl:pt-12">
+      <div id="section1" className="h-max bg-main bg-cover pt-32 mbl:pt-12">
         <div className="flex items-center justify-center py-40 sm:py-32">
           <div className="flex flex-col items-center justify-center gap-12 font-nordica font-bold">
             <div className="flex flex-col items-center justify-center gap-4">
@@ -22,21 +23,20 @@ export function Home() {
               </p>
               <div className="flex flex-row gap-6 items-center justify-center">
                 <Link to="/mythology">
-                  <button className="bg-red-400 text-gray-500 border-[3px] border-transparent rounded-md text-3xl py-4 px-14 transition-all hover:bg-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3">
-                    Mitologia
-                  </button>
+                  <Button title="Mitologia" type="PRIMARY" />
                 </Link>
                 <Link to="/reality">
-                  <button className="bg-transparent border-[3px] border-red-400 rounded-md text-red-400 text-3xl py-4 px-14 transition-all hover:border-opacity-80 hover:text-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3">
-                    Realidade
-                  </button>
+                  <Button title="Realidade" type="SECUNDARY" />
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="section2" className="flex flex-col items-center justify-center gap-6 p-12">
+      <div
+        id="section2"
+        className="flex flex-col items-center justify-center gap-6 p-12"
+      >
         <hr className="border border-maroon-100 w-2/3 mb-10" />
         <p className="text-center w-3/4 mbl:w-auto">
           Olá viajante, bem vinda(o) ao Nordician! <br />
@@ -81,7 +81,10 @@ export function Home() {
           </div>
         </div>
       </div>
-      <div id="section4" className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover">
+      <div
+        id="section4"
+        className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover"
+      >
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center justify-center gap-3">
             <h3 className="text-6xl">Alguma dúvida?</h3>
