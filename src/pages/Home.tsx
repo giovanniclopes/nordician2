@@ -90,7 +90,7 @@ export function Home() {
       </div>
       <div
         id="section4 form"
-        className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover border-t-4 border-red-400"
+        className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover bg-fixed bg-no-repeat border-t-4 border-red-400"
       >
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center justify-center gap-3">

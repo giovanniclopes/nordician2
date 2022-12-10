@@ -5,7 +5,7 @@ import { ScrollToTop } from "../components/ScrollToTop";
 
 export function Mythology() {
   return (
-    <div>
+    <div className="bg-effect bg-cover bg-no-repeat h-screen">
       <ScrollToTop />
       <Navbar />
       <div className="pt-32 mbl:pt-12">
