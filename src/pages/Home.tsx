@@ -80,7 +80,11 @@ export function Home() {
             </div>
           </div>
           <div>
-            <img className="w-[35rem] mbl:w-80" src={GamesIllustration} alt="" />
+            <img
+              className="w-[35rem] mbl:w-80"
+              src={GamesIllustration}
+              alt=""
+            />
           </div>
         </div>
       </div>
