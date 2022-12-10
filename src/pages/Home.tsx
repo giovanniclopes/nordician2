@@ -83,7 +83,7 @@ export function Home() {
             <img
               className="w-[35rem] mbl:w-80"
               src={GamesIllustration}
-              alt=""
+              alt="Páginas de jogos"
             />
           </div>
         </div>
