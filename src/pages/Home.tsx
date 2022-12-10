@@ -61,14 +61,14 @@ export function Home() {
       </div>
       <div
         id="section3 games"
-        className="flex items-center justify-center p-5 mx-5"
+        className="flex items-center justify-center p-5 mx-5 my-16"
       >
         <div className="grid grid-cols-2 gap-28  mbl:flex flex-col-reverse mbl:gap-20">
           <div className="flex flex-col items-center justify-center gap-10 text-center mbl:items-center">
             <div className="flex flex-col items-center gap-7 w-max mbl:w-96">
-              <h1 className="text-7xl mbl:text-5xl">Jogos Nórdicos</h1>
+              <h1 className="text-6xl mbl:text-5xl">Jogos Nórdicos</h1>
               <hr className="border border-maroon-100 w-2/3" />
-              <p className="w-[40rem]">
+              <p className="w-[35rem]">
                 Aqui coloquei diversos jogos digitais, que tem como tema
                 principal o mundo viking.
               </p>
@@ -81,7 +81,7 @@ export function Home() {
           </div>
           <div>
             <img
-              className="w-[35rem] mbl:w-80"
+              className="w-[30rem] mbl:w-80"
               src={GamesIllustration}
               alt="Páginas de jogos"
             />
@@ -90,7 +90,7 @@ export function Home() {
       </div>
       <div
         id="section4 form"
-        className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover"
+        className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover border-t-4 border-red-400"
       >
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center justify-center gap-3">
