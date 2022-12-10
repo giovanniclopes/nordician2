@@ -12,9 +12,9 @@ export function Mythology() {
       <div className="pt-32 mbl:pt-12">
         <h1>Mitologia</h1>
         <div className="flex flex-row">
-          <Categories title="item1" cover={img1} />
-          <Categories title="item2" cover={img2} />
-          <Categories title="item3" />
+          <Categories title="item1" imageUrl={img1} link="/" />
+          <Categories title="item2" imageUrl={img2} link="/" />
+          <Categories title="item3" imageUrl={img2} link="/" />
         </div>
       </div>
     </div>
