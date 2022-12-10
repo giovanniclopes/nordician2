@@ -9,8 +9,8 @@ export function Mythology() {
       <ScrollToTop />
       <Navbar />
       <div className="pt-32 mbl:pt-12">
-        <h1>Mitologia</h1>
-        <div className="flex flex-row">
+        <h1 className="ml-10">Mitologia</h1>
+        <div className="flex flex-row items-center justify-center">
           <Categories title="item1" imageUrl={img1} link="/" />
           <Categories title="item2" imageUrl={img1} link="/" />
           <Categories title="item3" imageUrl={img1} link="/" />
