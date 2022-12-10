@@ -9,11 +9,14 @@ export function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="section1" className="h-max bg-main bg-cover pt-32 mbl:pt-12">
+      <div
+        id="section1"
+        className="h-max bg-main bg-cover pt-32 pb-16 mbl:pt-12 mbl:pb-0"
+      >
         <div className="flex items-center justify-center py-40 sm:py-32">
-          <div className="flex flex-col items-center justify-center gap-12 font-nordica font-bold">
+          <div className="flex flex-col items-center justify-center gap-20">
             <div className="flex flex-col items-center justify-center gap-4">
-              <h1 className="text-white text-8xl text-center mbl:text-5xl">
+              <h1 className="text-white text-8xl text-center font-bold mbl:text-5xl">
                 Boas-vindas ao Mundo Nórdico
               </h1>
             </div>
@@ -56,33 +59,33 @@ export function Home() {
         </p>
         <hr className="border border-maroon-100 w-2/3 mt-10" />
       </div>
-      <div id="section3" className="flex items-center justify-center p-5 mx-5">
-        <div className="flex flex-row justify-center items-center gap-52 mbl:flex-col-reverse mbl:gap-20">
-          <div className="flex flex-col gap-10 mbl:items-center mbl:text-center">
-            <div className="flex flex-col gap-7 w-96">
-              <h1 className="text-7xl text-maroon-100 mbl:text-5xl">
-                Jogos Nórdicos
-              </h1>
-              <p className="w-full">
+      <div
+        id="section3 games"
+        className="flex items-center justify-center p-5 mx-5"
+      >
+        <div className="grid grid-cols-2 gap-28  mbl:flex flex-col-reverse mbl:gap-20">
+          <div className="flex flex-col items-center justify-center gap-10 text-center mbl:items-center">
+            <div className="flex flex-col items-center gap-7 w-max mbl:w-96">
+              <h1 className="text-7xl mbl:text-5xl">Jogos Nórdicos</h1>
+              <hr className="border border-maroon-100 w-2/3" />
+              <p className="w-[40rem]">
                 Aqui coloquei diversos jogos digitais, que tem como tema
                 principal o mundo viking.
               </p>
             </div>
-            <div className="w-fit">
+            <div>
               <Link to="/games">
-                <button className="flex items-center justify-center w-60 bg-red-400 text-gray-500 rounded p-3 mbl:w-72 transition-all hover:bg-opacity-80">
-                  Ver Jogos
-                </button>
+                <Button title="VER JOGOS" type="PRIMARY" />
               </Link>
             </div>
           </div>
           <div>
-            <img className="mbl:w-80" src={GamesIllustration} alt="" />
+            <img className="w-[35rem] mbl:w-80" src={GamesIllustration} alt="" />
           </div>
         </div>
       </div>
       <div
-        id="section4"
+        id="section4 form"
         className="flex flex-col justify-center mt-10 p-16 bg-contact bg-cover"
       >
         <div className="flex flex-col items-center gap-12">
