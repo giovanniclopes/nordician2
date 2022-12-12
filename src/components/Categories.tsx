@@ -17,7 +17,7 @@ export function Categories(props: CategorieProps) {
         </div>
         <div className="px-3">
           <div>
-            <span className="flex items-center justify-center w-1/4 p-2 rounded-xl bg-gray-300 text-black text-xs">
+            <span className="flex items-center justify-center w-max p-2 rounded-xl bg-gray-300 text-black text-xs">
               {props.label}
             </span>
           </div>

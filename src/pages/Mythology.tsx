@@ -17,21 +17,21 @@ export function Mythology() {
         <div className="flex flex-row items-center justify-center gap-7 font-poppins">
           <Categories
             imageUrl={mitRealms}
-            label="Label"
+            label="Asgard, Midgard, etc."
             title="Reinos"
             description="This is a short description about this card."
             link="/realms"
           />
           <Categories
             imageUrl={mitBeings}
-            label="Label"
-            title="Seres"
+            label="Hel, Fenrir, etc."
+            title="Criaturas"
             description="This is a short description about this card."
             link="/beings"
           />
           <Categories
             imageUrl={mitGods}
-            label="Label"
+            label="Odin, Thor, etc."
             title="Deuses"
             description="This is a short description about this card."
             link="/gods"
