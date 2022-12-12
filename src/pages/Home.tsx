@@ -84,6 +84,7 @@ export function Home() {
               className="w-[30rem] mbl:w-80"
               src={GamesIllustration}
               alt="Páginas de jogos"
+              draggable="false"
             />
           </div>
         </div>
