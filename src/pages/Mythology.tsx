@@ -19,7 +19,7 @@ export function Mythology() {
             imageUrl={mitRealms}
             label="Asgard, Midgard, etc."
             title="Reinos"
-            description="This is a short description about this card."
+            description="Todos os noves reinos da mitologia."
             link="/realms"
           />
           <Categories
