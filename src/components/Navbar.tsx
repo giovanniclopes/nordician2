@@ -26,7 +26,7 @@ export function Navbar() {
       <nav
         className={
           fix
-            ? "fixed top-0 w-full flex items-center justify-between h-24 py-3 px-8 mx-auto backdrop-blur-sm bg-black/80 text-white border-b-2 border-red-400 transition-all md:items-center mbl:px-4"
+            ? "fixed top-0 w-full flex items-center justify-between h-max py-3 px-8 mx-auto backdrop-blur-sm bg-gray-600/80 text-white border-b border-red-400 border-opacity-30 transition-all md:items-center mbl:px-4"
             : "fixed  top-0 w-full flex items-center justify-between h-24 py-3 px-8 mx-auto backdrop-blur-0 bg-gray-600/20 text-white border-b-2 border-transparent transition-all md:items-center mbl:px-4"
         }
       >
