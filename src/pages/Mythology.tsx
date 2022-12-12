@@ -3,34 +3,38 @@ import img1 from "../assets/bg-games.png";
 import Navbar from "../components/Navbar";
 import { ScrollToTop } from "../components/ScrollToTop";
 
+import mitRealms from "../assets/mythology/mit-realms.webp";
+import mitBeings from "../assets/mythology/mit-beings.webp";
+import mitGods from "../assets/mythology/mit-gods.webp";
+
 export function Mythology() {
   return (
-    <div className="h-screen">
+    <div className="h-screen overflow-hidden">
       <ScrollToTop />
       <Navbar />
-      <div className="pt-32 mbl:pt-12">
+      <div className="pt-28 mbl:pt-12">
         <h1 className="ml-10">Mitologia</h1>
         <div className="flex flex-row items-center justify-center gap-7 font-poppins">
           <Categories
-            imageUrl={img1}
+            imageUrl={mitRealms}
             label="Label"
-            title="Heading"
+            title="Reinos"
             description="This is a short description about this card."
-            link="/"
+            link="/realms"
           />
           <Categories
-            imageUrl={img1}
+            imageUrl={mitBeings}
             label="Label"
-            title="Heading"
+            title="Seres"
             description="This is a short description about this card."
-            link="/"
+            link="/beings"
           />
           <Categories
-            imageUrl={img1}
+            imageUrl={mitGods}
             label="Label"
-            title="Heading"
+            title="Deuses"
             description="This is a short description about this card."
-            link="/"
+            link="/gods"
           />
         </div>
       </div>
