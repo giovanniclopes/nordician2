@@ -26,14 +26,14 @@ export function Mythology() {
             imageUrl={mitBeings}
             label="Hel, Fenrir, etc."
             title="Criaturas"
-            description="This is a short description about this card."
+            description="Algumas das criaturas da mitologia."
             link="/beings"
           />
           <Categories
             imageUrl={mitGods}
             label="Odin, Thor, etc."
             title="Deuses"
-            description="This is a short description about this card."
+            description="Deuses  da mitologia."
             link="/gods"
           />
         </div>
