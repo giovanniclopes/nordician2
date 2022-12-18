@@ -1,5 +1,4 @@
 import { Categories } from "../components/Categories";
-import img1 from "../assets/bg-games.png";
 import Navbar from "../components/Navbar";
 import { ScrollToTop } from "../components/ScrollToTop";
 
