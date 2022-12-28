@@ -8,7 +8,6 @@ import { Beings } from "./pages/mythology/Beings";
 import { Gods } from "./pages/mythology/Gods";
 import { Realms } from "./pages/mythology/Realms";
 
-
 export function Router() {
   return (
     <Routes>

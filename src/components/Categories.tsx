@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-interface CategorieProps {
+interface CategoriesProps {
   imageUrl: string;
   label: string;
   title: string;
@@ -8,10 +8,10 @@ interface CategorieProps {
   link: string;
 }
 
-export function Categories(props: CategorieProps) {
+export function Categories(props: CategoriesProps) {
   return (
     <Link to={props.link}>
-      <div className="flex flex-col p-2 py-4 w-96 rounded-2xl bg-gray-500 transition-all hover:brightness-110">
+      <div className="flex flex-col p-2 py-4 w-96 rounded-2xl bg-gray-500 transition-all hover:bg-gray-450">
         <div className="flex items-center justify-center mb-4">
           <img className="w-96 h-56 rounded-2xl" src={props.imageUrl} alt="" />
         </div>

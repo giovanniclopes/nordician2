@@ -8,12 +8,12 @@ import mitGods from "../assets/mythology/mit-gods.webp";
 
 export function Mythology() {
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-fit overflow-hidden">
       <ScrollToTop />
       <Navbar />
-      <div className="pt-28 mbl:pt-12">
+      <div className="pt-28 pb-10 mbl:pt-24">
         <h1 className="ml-10">Mitologia</h1>
-        <div className="flex flex-row items-center justify-center gap-7 font-poppins">
+        <div className="flex flex-row items-center justify-center gap-7 font-poppins mbl:flex-col">
           <Categories
             imageUrl={mitRealms}
             label="Asgard, Midgard, etc."
