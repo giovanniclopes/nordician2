@@ -55,14 +55,14 @@ export function Navbar() {
           <NavLink
             className="transition-all hover:text-white"
             onClick={clickHandler}
-            to="mythology"
+            to="/mythology"
           >
             Mitologia
           </NavLink>
           <NavLink
             className="transition-all hover:text-white"
             onClick={clickHandler}
-            to="reality"
+            to="/reality"
           >
             Realidade
           </NavLink>
