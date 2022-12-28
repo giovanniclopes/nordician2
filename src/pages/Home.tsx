@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import GamesIllustration from "../assets/GamesIllustration.gif";
+import { ArticleRecommend } from "../components/ArticleRecommend";
 import Navbar from "../components/Navbar";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Button } from "./../components/Button";
