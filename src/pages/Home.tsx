@@ -68,7 +68,7 @@ export function Home() {
             <div className="flex flex-col items-center gap-7 w-max mbl:w-96">
               <h1 className="text-6xl mbl:text-5xl">Jogos Nórdicos</h1>
               <hr className="border border-maroon-100 w-2/3" />
-              <p className="w-[35rem]">
+              <p className="w-[35rem] mbl:w-96">
                 Aqui coloquei diversos jogos digitais, que tem como tema
                 principal o mundo viking.
               </p>
@@ -95,11 +95,11 @@ export function Home() {
       >
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center justify-center gap-3">
-            <h3 className="text-6xl">Alguma dúvida?</h3>
+            <h3 className="text-6xl w-max">Alguma dúvida?</h3>
             <p>Entre em contato</p>
             <hr className="border border-red-400 w-24" />
           </div>
-          <div className="max-w-xl w-full">
+          <div className="max-w-xl w-full mbl:w-96">
             <form
               action="https://formsubmit.co/giovanniclopes@gmail.com"
               method="post"
