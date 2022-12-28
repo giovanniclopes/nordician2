@@ -35,10 +35,13 @@ export const ScrollToTop = () => {
         onClick={scrollToTop}
         className={classNames(
           isVisible ? "opacity-100" : "opacity-0",
-          "bg-black bg-opacity-30 border-2 border-red-400 focus:ring-red-500 inline-flex items-center rounded-full p-3 shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2"
+          " z-50 bg-black bg-opacity-30 border-2 border-red-400 focus:ring-red-500 inline-flex items-center rounded-full p-3 shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2"
         )}
       >
-        <ChevronUpIcon className="h-8 w-8 text-red-400" aria-hidden="true" />
+        <ChevronUpIcon
+          className=" z-50 h-8 w-8 text-red-400"
+          aria-hidden="true"
+        />
       </button>
     </div>
   );
