@@ -1,9 +1,14 @@
+import Navbar from "../components/Navbar";
+
 export function Reality() {
   return (
     <>
-      <h1>Teste123</h1>
+      <div className="h-fit overflow-hidden">
+        <Navbar />
+        <div></div>
+      </div>
     </>
-  )
+  );
 }
 
 export default Reality;
