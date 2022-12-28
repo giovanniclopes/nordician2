@@ -7,6 +7,15 @@ import { Reality } from "./pages/Reality";
 import { Beings } from "./pages/mythology/Beings";
 import { Gods } from "./pages/mythology/Gods";
 import { Realms } from "./pages/mythology/Realms";
+import { Alfheim } from "./pages/mythology/realms/Alfheim";
+import { Asgard } from "./pages/mythology/realms/Asgard";
+import { Helheim } from "./pages/mythology/realms/Helheim";
+import { Jotunheim } from "./pages/mythology/realms/Jotunheim";
+import { Midgard } from "./pages/mythology/realms/Midgard";
+import { Musphelheim } from "./pages/mythology/realms/Musphelheim";
+import { Niflheim } from "./pages/mythology/realms/Niflheim";
+import { Svartalfheim } from "./pages/mythology/realms/Svartalfheim";
+import { Vanaheim } from "./pages/mythology/realms/Vanaheim";
 
 export function Router() {
   return (
