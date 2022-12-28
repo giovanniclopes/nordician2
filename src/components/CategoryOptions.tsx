@@ -10,7 +10,7 @@ interface CategoryOptionsProps {
 export function CategoryOptions(props: CategoryOptionsProps) {
   return (
     <Link to={props.link}>
-      <div className="w-full h-96">
+      <div className="w-full h-[530px] transition-all hover:opacity-80">
         <div
           className="w-full h-full bg-cover bg-no-repeat"
           style={{
@@ -24,19 +24,19 @@ export function CategoryOptions(props: CategoryOptionsProps) {
           rgba(0, 0, 0, 1) 100%)`,
             }}
           >
-            <div className="flex flex-col items-center justify-center p-5 pt-24 text-center">
+            <div className="flex flex-col items-center justify-center p-5 pt-40 text-center">
               <div>
                 <h2 className="mt-2 text-5xl font-medium text-gray-100">
                   {props.title}
                 </h2>
               </div>
               <div>
-                <p className="my-2 -tracking-normal font-thin text-white text-lg text-opacity-60">
+                <p className="my-2 -tracking-normal font-normal text-white text-lg text-opacity-60">
                   {props.description}
                 </p>
               </div>
             </div>
-            <div className="mt-24">
+            <div className="mt-[7.3rem]">
               <Link to={props.link}>
                 <button className="flex justify-center items-center w-full p-2 py-6 bg-gray-300 font-normal text-lg transition-all bg-opacity-30 hover:bg-opacity-20">
                   Conhecer
