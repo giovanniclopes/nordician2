@@ -24,31 +24,31 @@ export function Realms() {
             backgroundUrl={AlfheimImg}
             title="Alfheim"
             description="Reino dos elfos."
-            link="/realms"
+            link="/realms/alfheim"
           />
           <CategoryOptions
             backgroundUrl={AsgardImg}
             title="Asgard"
             description="Reino dos deuses Æsir."
-            link="/realms"
+            link="/realms/asgard"
           />
           <CategoryOptions
             backgroundUrl={HelheimImg}
             title="Helheim"
             description="Reino do pós-vida."
-            link="/realms"
+            link="/realms/helheim"
           />
           <CategoryOptions
             backgroundUrl={JotunheimImg}
             title="Jotunheim"
             description="Reino dos gigantes."
-            link="/realms"
+            link="/realms/jotunheim"
           />
           <CategoryOptions
             backgroundUrl={MidgardImg}
             title="Midgard"
             description="Reino dos seres humanos e trolls."
-            link="/realms"
+            link="/realms/midgard"
           />
           <CategoryOptions
             backgroundUrl={MusphelheimImg}
@@ -60,19 +60,19 @@ export function Realms() {
             backgroundUrl={NiflheimImg}
             title="Niflheim"
             description="Reino primordial do gelo."
-            link="/realms"
+            link="/realms/niflheim"
           />
           <CategoryOptions
             backgroundUrl={SvartalfheimImg}
             title="Svartalfheim"
             description="Reino dos anões e elfos escuros."
-            link="/realms"
+            link="/realms/svartalfheim"
           />
           <CategoryOptions
             backgroundUrl={VanaheimImg}
             title="Vanaheim"
             description="Reino dos deuses Vanir."
-            link="/realms"
+            link="/realms/vanaheim"
           />
         </div>
       </div>
