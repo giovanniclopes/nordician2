@@ -21,6 +21,18 @@ export function Router() {
       <Route path="/realms" element={<Realms />} />
       <Route path="/beings" element={<Beings />} />
       <Route path="/gods" element={<Gods />} />
+
+      {/* Realms */}
+
+      <Route path="/realms/alfheim" element={<Alfheim />} />
+      <Route path="/realms/asgard" element={<Asgard />} />
+      <Route path="/realms/helheim" element={<Helheim />} />
+      <Route path="/realms/jotunheim" element={<Jotunheim />} />
+      <Route path="/realms/midgard" element={<Midgard />} />
+      <Route path="/realms/musphelheim" element={<Musphelheim />} />
+      <Route path="/realms/niflheim" element={<Niflheim />} />
+      <Route path="/realms/svartalfheim" element={<Svartalfheim />} />
+      <Route path="/realms/vanaheim" element={<Vanaheim />} />
     </Routes>
   );
 }
