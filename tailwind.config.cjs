@@ -12,6 +12,7 @@ module.exports = {
         contact: "url(/src/assets/bg-contact.webp)",
         effect: "url(/src/assets/bg-effect.png)",
         gradient: "linear-gradient(-150deg, #131313, #000000, #131313)",
+        blueGradient: "linear-gradient(-140deg, #7D8E85, #38454A, #212C30)",
       },
       fontFamily: {
         mjolnir: "Mjolnir, Arial, sans-serif",
@@ -33,6 +34,11 @@ module.exports = {
           400: "#D42121 ",
           500: "#AA1A1A",
           600: "#6A1111",
+        },
+        blue: {
+          300: "#7D8E85",
+          500: "#38454A",
+          700: "#212C30",
         },
         maroon: {
           100: "#DFC8AC",

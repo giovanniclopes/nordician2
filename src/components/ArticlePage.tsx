@@ -19,7 +19,7 @@ export function ArticlePage(props: BlogPageProps) {
         <div className="flex flex-col gap-12">
           <div className="flex items-center justify-center">
             <img
-              className="w-1/2 rounded-md"
+              className="w-1/2 rounded-lg mbl:w-auto mbl:px-5"
               src={props.imageUrl}
               alt="Article Image"
             />
@@ -29,7 +29,7 @@ export function ArticlePage(props: BlogPageProps) {
               {props.title}
             </h1>
           </div>
-          <div className="flex flex-col items-center justify-center h-96 text-center">
+          <div className="flex flex-col items-center justify-center h-96 text-center mbl:h-auto">
             <hr className="w-96" />
             <p className="py-12 w-10/12">{props.baseText}</p>
             <hr className="w-96" />
@@ -39,7 +39,7 @@ export function ArticlePage(props: BlogPageProps) {
           <div className="text-center mt-16">
             <h2 className="text-3xl font-poppins text-maroon-100">Recomendados</h2>
           </div>
-          <div className="grid grid-cols-3 items-center justify-center gap-8 mt-12">
+          <div className="grid grid-cols-3 items-center justify-center gap-8 mt-12 mbl:grid-cols-1">
             <ArticleRecommend
               backgroundUrl={MusphelheimImg}
               title="Musphelheim"

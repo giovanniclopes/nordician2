@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import PageNotFound from "./pages/PageNotFound";
+
 import { Games } from "./pages/Games";
 import { Home } from "./pages/Home";
 import { Mythology } from "./pages/Mythology";
@@ -30,6 +32,10 @@ export function Router() {
       <Route path="/realms" element={<Realms />} />
       <Route path="/beings" element={<Beings />} />
       <Route path="/gods" element={<Gods />} />
+
+      {/* Error */}
+
+      <Route path="*" element={<PageNotFound />} />
 
       {/* Realms */}
 
