@@ -10,9 +10,9 @@ interface ArticleRecommendProps {
 export function ArticleRecommend(props: ArticleRecommendProps) {
   return (
     <Link to={props.link}>
-      <div className="w-5/12 h-60 transition-all hover:opacity-80">
+      <div className="w-96 h-60 transition-all hover:opacity-80">
         <div
-          className="w-full h-full bg-cover bg-no-repeat"
+          className="w-full h-full bg-cover bg-no-repeat rounded-xl"
           style={{
             backgroundImage: `url(${props.backgroundUrl})`,
           }}
