@@ -10,9 +10,9 @@ interface CategoryOptionsProps {
 export function CategoryOptions(props: CategoryOptionsProps) {
   return (
     <Link to={props.link}>
-      <div className="w-full h-[530px] transition-all hover:opacity-80">
+      <div className="w-full h-max transition-all hover:opacity-80">
         <div
-          className="w-full h-full bg-cover bg-no-repeat"
+          className="w-full h-full bg-cover bg-center bg-no-repeat transition-all hover:saturate-200"
           style={{
             backgroundImage: `url(${props.backgroundUrl})`,
           }}

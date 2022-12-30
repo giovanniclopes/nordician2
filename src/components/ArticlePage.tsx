@@ -29,9 +29,9 @@ export function ArticlePage(props: BlogPageProps) {
               {props.title}
             </h1>
           </div>
-          <div className="flex flex-col items-center justify-center h-96 text-center mbl:h-auto">
+          <div className="flex flex-col items-center justify-center h-max text-center">
             <hr className="w-96" />
-            <p className="py-12 w-10/12">{props.baseText}</p>
+            <p className="py-12 w-10/12 leading-loose">{props.baseText}</p>
             <hr className="w-96" />
           </div>
         </div>

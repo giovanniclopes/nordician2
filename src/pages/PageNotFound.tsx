@@ -5,10 +5,10 @@ export function PageNotFound() {
   return (
     <div className="grid grid-cols-2 bg-white text-gray-900 text-center h-screen">
       <div className="flex flex-col items-center justidy-center my-auto font-poppins">
-        <h1 className="bg-bgText bg-bottom bg-cover bg-no-repeat bg-clip-text text-transparent font-black text-[12rem] select-none">
+        <h1 className="bg-bgText bg-bottom bg-cover bg-no-repeat bg-clip-text text-transparent font-black text-9xl select-none">
           Oops!
         </h1>
-        <h2 className="mb-7 font-bold uppercase text-3xl">
+        <h2 className="m-6 font-bold uppercase text-3xl">
           404 - Página não encontrada
         </h2>
         <p className="w-11/12 font-medium">
@@ -18,7 +18,7 @@ export function PageNotFound() {
         <div className="mt-10">
           <Link to="/">
             <button
-              className="font-poppins p-5 px-14 rounded-full text-white bg-red-800 transition-all hover:bg-red-900"
+              className="text-2xl font-poppins p-4 px-14 rounded-xl text-white bg-gray-500 transition-all hover:bg-black"
               type="submit"
             >
               Voltar ao início

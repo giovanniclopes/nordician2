@@ -9,6 +9,7 @@ import { Reality } from "./pages/Reality";
 import { Beings } from "./pages/mythology/Beings";
 import { Gods } from "./pages/mythology/Gods";
 import { Realms } from "./pages/mythology/Realms";
+
 import { Alfheim } from "./pages/mythology/realms/Alfheim";
 import { Asgard } from "./pages/mythology/realms/Asgard";
 import { Helheim } from "./pages/mythology/realms/Helheim";
@@ -18,6 +19,11 @@ import { Musphelheim } from "./pages/mythology/realms/Musphelheim";
 import { Niflheim } from "./pages/mythology/realms/Niflheim";
 import { Svartalfheim } from "./pages/mythology/realms/Svartalfheim";
 import { Vanaheim } from "./pages/mythology/realms/Vanaheim";
+
+import Angrboda from './pages/mythology/beings/Angrboda';
+import Hel from "./pages/mythology/beings/Hel";
+import Jormungandr from "./pages/mythology/beings/Jormungandr";
+import Surtr from "./pages/mythology/beings/Surtr";
 
 export function Router() {
   return (
@@ -48,6 +54,14 @@ export function Router() {
       <Route path="/realms/niflheim" element={<Niflheim />} />
       <Route path="/realms/svartalfheim" element={<Svartalfheim />} />
       <Route path="/realms/vanaheim" element={<Vanaheim />} />
+
+      {/* Beings */}
+
+      <Route path="/beings/angrboda" element={<Angrboda />} />
+      <Route path="/beings/hel" element={<Hel />} />
+      <Route path="/beings/jormungandr" element={<Jormungandr />} />
+      <Route path="/beings/surtr" element={<Surtr />} />
+
     </Routes>
   );
 }

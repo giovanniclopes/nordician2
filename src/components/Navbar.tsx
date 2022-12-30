@@ -41,7 +41,7 @@ export function Navbar() {
         <div
           className={
             togglerNav
-              ? "mbl:absolute mbl:w-[28.5rem] mbl:top-[6.5rem] mbl:right-0 mbl:p-6 mbl:flex mbl:items-left mbl:flex-col mbl:gap-4 text-gray-300 font-nordica text-2xl bg-black md:flex md:items-center"
+              ? "absolute left-0 top-0 w-screen mt-20 border-t border-red-400 p-6 flex items-left flex-col gap-4 text-gray-300 font-nordica text-2xl bg-gray-600 md:flex md:items-center"
               : "hidden gap-4 text-gray-300 font-nordica text-2xl md:flex md:items-center"
           }
         >
