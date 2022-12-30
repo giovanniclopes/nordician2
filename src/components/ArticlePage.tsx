@@ -28,14 +28,14 @@ export function ArticlePage(props: BlogPageProps) {
             />
           </div>
           <div className="flex flex-col items-center justify-center">
-            <h1 className="text-5xl font-mjolnir font-bold text-maroon-100">
+            <h1 className="text-5xl font-mjolnir font-bold text-maroon-100 mbl:text-4xl">
               {props.title}
             </h1>
           </div>
-          <div className="flex flex-col items-center justify-center h-max text-center">
-            <hr className="w-96" />
-            <p className="py-12 w-10/12 leading-loose">{props.baseText}</p>
-            <hr className="w-96" />
+          <div className="flex flex-col items-center justify-center h-max text-center mbl:text-left">
+            <hr className="w-96 mbl:w-80" />
+            <p className="py-12 pl-2 w-10/12 leading-loose mbl:w-11/12">{props.baseText}</p>
+            <hr className="w-96 mbl:w-80" />
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
