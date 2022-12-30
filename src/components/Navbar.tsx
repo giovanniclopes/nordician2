@@ -21,6 +21,11 @@ export function Navbar() {
     setTogglerNav(!togglerNav);
   };
 
+  let activeStyle = {
+    textDecoration: "underline",
+    color: "white",
+  };
+
   return (
     <header>
       <nav
@@ -49,6 +54,7 @@ export function Navbar() {
             className="transition-all hover:text-white"
             onClick={clickHandler}
             to="/"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Home
           </NavLink>
@@ -56,6 +62,7 @@ export function Navbar() {
             className="transition-all hover:text-white"
             onClick={clickHandler}
             to="/mythology"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Mitologia
           </NavLink>
@@ -63,6 +70,7 @@ export function Navbar() {
             className="transition-all hover:text-white"
             onClick={clickHandler}
             to="/reality"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Realidade
           </NavLink>

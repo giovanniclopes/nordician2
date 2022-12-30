@@ -17,3 +17,5 @@ export function Alfheim() {
     </div>
   );
 }
+
+export default Alfheim;

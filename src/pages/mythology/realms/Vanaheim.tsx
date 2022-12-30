@@ -5,3 +5,5 @@ export function Vanaheim() {
     </div>
   )
 }
+
+export default Vanaheim;
