@@ -12,7 +12,7 @@ export function Home() {
       <Navbar />
       <div
         id="section1"
-        className="h-max bg-main bg-cover pt-24 pb-16 mbl:pt-12 mbl:pb-0"
+        className="h-max bg-main bg-cover pt-24 pb-16 mbl:pt-12 mbl:pb-0 mbl:bg-right"
       >
         <div className="flex items-center justify-center py-40 sm:py-32">
           <div className="flex flex-col items-center justify-center gap-20">
@@ -80,7 +80,7 @@ export function Home() {
               </Link>
             </div>
           </div>
-          <div>
+          <div className="mbl:flex mbl:items-center mbl:justify-center">
             <img
               className="w-[30rem] mbl:w-80"
               src={GamesIllustration}
