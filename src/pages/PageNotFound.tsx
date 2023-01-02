@@ -26,7 +26,8 @@ export function PageNotFound() {
             <span className="font-normal lowercase text-xs">error</span> 
             404
           </span>
-          <br />- Página não encontrada -
+          <br />
+          - Página não encontrada -
         </h2>
         <p className="w-11/12 text-black font-medium mbl:text-lg">
           A página que você está procurando pode ter sido removida, teve seu
