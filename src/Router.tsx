@@ -25,6 +25,7 @@ import Hel from "./pages/mythology/beings/Hel";
 import Jormungandr from "./pages/mythology/beings/Jormungandr";
 import Surtr from "./pages/mythology/beings/Surtr";
 
+import Odin from "./pages/mythology/gods/Odin";
 import Tyr from "./pages/mythology/gods/Tyr";
 
 export function Router() {
@@ -62,6 +63,7 @@ export function Router() {
 
       {/* Gods */}
       <Route path="/gods/tyr" element={<Tyr />} />
+      <Route path="/gods/odin" element={<Odin />} />
     </Routes>
   );
 }

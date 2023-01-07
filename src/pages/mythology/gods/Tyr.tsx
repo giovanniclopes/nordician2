@@ -9,9 +9,7 @@ export function Tyr() {
         <ArticlePage
           imageUrl={TyrImg}
           title="Tyr"
-          baseText="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero officiis dolores quaerat voluptates dolore quam dicta distinctio delectus possimus tempore rerum aperiam asperiores et error, nesciunt laborum ab iste voluptatem quia. Alias enim, debitis amet dolores atque nulla illum exercitationem numquam rerum omnis quos error itaque cumque quaerat, fugit eaque, repellat deserunt laboriosam? Perspiciatis ipsam aperiam maxime praesentium in dolores impedit fugit, esse ut vel, itaque sapiente! 
-          
-          Porro dolore possimus provident autem molestias quasi officia fugit rem facilis, ea et doloremque amet unde! Rem earum nemo alias recusandae animi minus nulla eaque voluptas, pariatur nobis. Quasi quis deleniti molestias fugit minima provident, corporis numquam dicta alias ut placeat rerum corrupti recusandae error autem? Inventore unde sunt, fugit illo autem repellat nam officia consectetur eum nihil sit aperiam obcaecati in illum quos quaerat, natus vitae neque iure. Officia consectetur perspiciatis praesentium et voluptas, numquam ea ad voluptatibus? Aliquam temporibus id non."
+          baseText="Týr é um deus da mitologia nórdica conhecido como o deus da guerra e da justiça. Ele é um deus corajoso e valente e é considerado um líder entre os deuses nórdicos. Ele é geralmente retratado como um guerreiro forte e é conhecido por sua determinação e determinação. Na mitologia nórdica, ele é um deus importante e é mencionado em muitas histórias e lendas antigas. Algumas das suas principais habilidades incluem a capacidade de lutar com espadas e a capacidade de fazer justiça. Ele é um deus muito popular e é reverenciado e temido por muitos. Ele é também conhecido por ter um braço artificial feito de prata, que ele perdeu em uma luta contra o lobo Fenrir. Týr é um deus importante na mitologia nórdica e é lembrado como um símbolo de coragem e determinação."
         />
       </div>
     </div>
