@@ -22,7 +22,7 @@ export function ArticlePage(props: BlogPageProps) {
         <div className="flex flex-col gap-12">
           <div className="flex items-center justify-center">
             <img
-              className="w-1/2 rounded-lg mbl:w-auto mbl:px-5"
+              className="w-[35rem] rounded-lg mbl:w-auto mbl:px-5"
               src={props.imageUrl}
               alt="Article Image"
             />

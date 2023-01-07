@@ -27,6 +27,7 @@ import Surtr from "./pages/mythology/beings/Surtr";
 
 import Odin from "./pages/mythology/gods/Odin";
 import Tyr from "./pages/mythology/gods/Tyr";
+import { Freya } from './pages/mythology/gods/Freya';
 
 export function Router() {
   return (
@@ -64,6 +65,7 @@ export function Router() {
       {/* Gods */}
       <Route path="/gods/tyr" element={<Tyr />} />
       <Route path="/gods/odin" element={<Odin />} />
+      <Route path="/gods/freya" element={<Freya />} />
     </Routes>
   );
 }
