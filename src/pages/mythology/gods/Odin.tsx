@@ -1,6 +1,6 @@
 import ArticlePage from "../../../components/ArticlePage";
 
-export function Tyr() {
+export function Odin() {
   return (
     <div>
       <div>
@@ -14,4 +14,4 @@ export function Tyr() {
   );
 }
 
-export default Tyr;
+export default Odin;
