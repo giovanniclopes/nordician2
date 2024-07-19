@@ -1,8 +1,10 @@
 import ArticlePage from "../../../components/ArticlePage";
 
 import FreyaImg from "../../../assets/mythology/gods/bg-freya.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Freya() {
+  DocumentTitle("Mitologia - Freya");
   return (
     <div>
       <div>

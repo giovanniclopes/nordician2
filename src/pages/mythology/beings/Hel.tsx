@@ -1,7 +1,9 @@
 import ArticlePage from "../../../components/ArticlePage";
 import HelImg from "../../../assets/mythology/beings/bg-hel.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Hel() {
+  DocumentTitle("Mitologia - Hel");
   return (
     <div>
       <div>

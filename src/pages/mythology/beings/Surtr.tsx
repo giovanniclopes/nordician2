@@ -1,7 +1,9 @@
 import ArticlePage from "../../../components/ArticlePage";
 import SurtrImg from "../../../assets/mythology/beings/bg-surtr.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Surtr() {
+  DocumentTitle("Mitologia - Surtr")
   return (
     <div>
       <div>

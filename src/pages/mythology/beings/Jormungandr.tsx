@@ -1,7 +1,9 @@
 import ArticlePage from "../../../components/ArticlePage";
 import JormungandrImg from "../../../assets/mythology/beings/bg-jormungandr.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Jormungandr() {
+  DocumentTitle("Mitologia - Jormungandr");
   return (
     <div>
       <div>

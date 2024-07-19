@@ -1,8 +1,10 @@
 import ArticlePage from "../../../components/ArticlePage";
 
 import TyrImg from "../../../assets/mythology/gods/bg-tyr.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Tyr() {
+  DocumentTitle("Mitologia - Tyr");
   return (
     <div>
       <div>

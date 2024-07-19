@@ -10,31 +10,37 @@ import ScrollToTop from "./ScrollToTop";
 interface BlogPageProps {
   imageUrl: string;
   title: string;
+  description?: string;
   baseText: string;
 }
 
 export function ArticlePage(props: BlogPageProps) {
   return (
     <div className="h-full bg-main bg-cover bg-right">
-      <div className="pt-36 pb-12 bg-gray-0.5">
+      <div className="pt-24 pb-12 bg-gray-0.5">
         <Navbar />
         <ScrollToTop />
         <div className="flex flex-col gap-12">
           <div className="flex items-center justify-center">
             <img
-              className="w-[35rem] rounded-lg mbl:w-auto mbl:px-5"
+              className="w-full h-96 object-cover object-center mbl:w-auto mbl:px-5"
               src={props.imageUrl}
               alt="Article Image"
             />
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-2">
             <h1 className="text-5xl font-mjolnir font-bold text-maroon-100 mbl:text-4xl">
               {props.title}
             </h1>
+            <h2 className="text-2xl font-mjolnir font-semibold text-maroon-100 mbl:text-xl">
+              {props.description}
+            </h2>
           </div>
           <div className="flex flex-col items-center justify-center h-max text-center mbl:text-left">
             <hr className="w-96 mbl:w-80" />
-            <p className="py-12 pl-2 w-10/12 leading-loose mbl:w-11/12">{props.baseText}</p>
+            <p className="py-12 pl-2 w-10/12 leading-loose mbl:w-11/12">
+              {props.baseText}
+            </p>
             <hr className="w-96 mbl:w-80" />
           </div>
         </div>

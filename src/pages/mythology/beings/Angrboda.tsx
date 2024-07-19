@@ -1,7 +1,9 @@
 import ArticlePage from "../../../components/ArticlePage";
 import AngrbodaImg from "../../../assets/mythology/beings/bg-angrboda.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Angrboda() {
+  DocumentTitle("Mitologia - Angrboda");
   return (
     <div>
       <div>

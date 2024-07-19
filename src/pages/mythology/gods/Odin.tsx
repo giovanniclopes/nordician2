@@ -1,8 +1,10 @@
 import ArticlePage from "../../../components/ArticlePage";
 
 import OdinImg from "../../../assets/mythology/gods/bg-odin.webp";
+import { DocumentTitle } from "../../../DocumentTitle";
 
 export function Odin() {
+  DocumentTitle("Mitologia - Odin");
   return (
     <div>
       <div>
