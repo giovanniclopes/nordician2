@@ -4,6 +4,7 @@ import { client } from "../../lib/graphql/client";
 import { GET_ALL_POSTS } from "../../lib/graphql/queries";
 import { Post } from "../../lib/graphql/types";
 import Navbar from "../../components/Navbar";
+import { motion } from "framer-motion";
 
 export function Gods() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -31,66 +32,124 @@ export function Gods() {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <Navbar />
-      <h1 className="text-4xl font-bold mb-8">Norse Gods</h1>
 
-      {loading && (
-        <div className="text-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
-          <p className="mt-4">Carregando deuses...</p>
-        </div>
-      )}
+      <div className="pt-28 pb-10 container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="text-center mb-12">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-5xl font-bold mb-4 font-mjolnir tracking-wide"
+            >
+              Deuses Nórdicos
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-xl text-gray-300 max-w-2xl mx-auto"
+            >
+              Descubra as poderosas divindades que moldam os nove reinos
+            </motion.p>
+          </div>
 
-      {error && (
-        <div className="text-red-600 bg-red-100 p-4 rounded-lg mb-6">
-          {error}
-        </div>
-      )}
-
-      {!loading && !error && posts.length === 0 && (
-        <div className="text-center py-8">
-          <p>Nenhum deus disponível ainda.</p>
-        </div>
-      )}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <Link
-            key={post.id}
-            to={`/gods/${post.slug}`}
-            className="block hover:opacity-90 transition-opacity"
-          >
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              {post.coverPhoto && (
-                <img
-                  src={post.coverPhoto.url}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
-              )}
-              <div className="p-4">
-                <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                {post.author && (
-                  <div className="flex items-center text-sm text-gray-600">
-                    {post.author.avatar && (
-                      <img
-                        src={post.author.avatar.url}
-                        alt={post.author.name}
-                        className="w-6 h-6 rounded-full mr-2"
-                      />
-                    )}
-                    <span>{post.author.name}</span>
-                    <span className="mx-2">•</span>
-                    <span>
-                      {new Date(post.datePublished).toLocaleDateString()}
-                    </span>
-                  </div>
-                )}
+          {loading && (
+            <div className="flex items-center justify-center h-[40vh]">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-500 mx-auto"></div>
+                <p className="mt-4 text-xl text-gray-300">
+                  Carregando deuses...
+                </p>
               </div>
             </div>
-          </Link>
-        ))}
+          )}
+
+          {error && (
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-red-900/20 border border-red-500/50 text-red-200 p-6 rounded-lg">
+                <h2 className="text-xl font-bold mb-2">Erro</h2>
+                <p>{error}</p>
+              </div>
+            </div>
+          )}
+
+          {!loading && !error && posts.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-xl text-gray-300">
+                Nenhum deus disponível ainda.
+              </p>
+            </div>
+          )}
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {posts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
+              >
+                <Link to={`/gods/${post.slug}`} className="block group">
+                  <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-300 group-hover:scale-[1.02]">
+                    {post.coverPhoto && (
+                      <div className="relative h-64 overflow-hidden">
+                        <img
+                          src={post.coverPhoto.url}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60" />
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <h2 className="text-2xl font-bold mb-3 font-mjolnir tracking-wide">
+                        {post.title}
+                      </h2>
+                      {post.author && (
+                        <div className="flex items-center text-sm text-gray-300">
+                          {post.author.avatar && (
+                            <img
+                              src={post.author.avatar.url}
+                              alt={post.author.name}
+                              className="w-8 h-8 rounded-full border-2 border-purple-500 mr-3"
+                            />
+                          )}
+                          <div>
+                            <span className="block font-medium">
+                              {post.author.name}
+                            </span>
+                            <span className="text-purple-400">
+                              {new Date(post.datePublished).toLocaleDateString(
+                                "pt-BR",
+                                {
+                                  day: "numeric",
+                                  month: "long",
+                                  year: "numeric",
+                                }
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
