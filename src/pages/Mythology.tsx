@@ -8,11 +8,12 @@ import mitGods from "../assets/mythology/mit-gods.webp";
 
 export function Mythology() {
   return (
-    <div className="h-fit overflow-hidden">
+    <div className="container mx-auto px-4 py-8">
       <ScrollToTop />
       <Navbar />
+      <h1 className="text-4xl font-bold mb-8">Mitologia Nórdica</h1>
+
       <div className="pt-28 pb-10 mbl:pt-24">
-        <h1 className="ml-10">Mitologia</h1>
         <div className="flex flex-row items-center justify-center gap-7 font-poppins mbl:flex-col">
           <Categories
             imageUrl={mitRealms}
@@ -32,7 +33,7 @@ export function Mythology() {
             imageUrl={mitGods}
             label="Odin, Thor, etc."
             title="Deuses"
-            description="Deuses  da mitologia."
+            description="Deuses da mitologia."
             link="/gods"
           />
         </div>

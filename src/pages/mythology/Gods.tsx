@@ -1,48 +1,99 @@
-import { CategoryOptions } from "../../components/CategoryOptions";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { client } from "../../lib/graphql/client";
+import { GET_ALL_POSTS } from "../../lib/graphql/queries";
+import { Post } from "../../lib/graphql/types";
 import Navbar from "../../components/Navbar";
-import { ScrollToTop } from "../../components/ScrollToTop";
-
-import OdinImg from "../../assets/mythology/gods/bg-odin.webp";
-import FreyaImg from "../../assets/mythology/gods/bg-freya.webp";
-import ThorImg from "../../assets/mythology/gods/bg-thor.webp";
-// import LokiImg from "../../assets/mythology/gods/bg-loki.webp";
 
 export function Gods() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const data = (await client.request(GET_ALL_POSTS)) as { posts: Post[] };
+        setPosts(
+          data.posts?.filter((post) => post.tags?.includes("gods")) || []
+        );
+      } catch (error) {
+        console.error("Erro ao buscar artigos:", error);
+        setError(
+          "Erro ao buscar artigos. Por favor tente novamente mais tarde."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
-    <div className="h-fit">
-      <ScrollToTop />
+    <div className="container mx-auto px-4 py-8">
       <Navbar />
-      <div className="pt-28 mb-5 mbl:pt-24">
-        <h1 className="ml-10 mb-2">Deuses</h1>
-        <div className="grid grid-cols-3 font-poppins mbl:grid-cols-1">
-          <CategoryOptions
-            backgroundUrl={OdinImg}
-            title="Odin"
-            description="O pais de todos."
-            link="/gods/odin"
-          />
-          <CategoryOptions
-            backgroundUrl={FreyaImg}
-            title="Freya"
-            description="A deusa da natureza."
-            link="/gods/freya"
-          />
-          <CategoryOptions
-            backgroundUrl={ThorImg}
-            title="Thor"
-            description="O deus do trovão."
-            link="/gods/thor"
-          />
-          {/* <CategoryOptions
-            backgroundUrl={LokiImg}
-            title="Loki"
-            description="O deus da enganação."
-            link="/gods/loki"
-          /> */}
+      <h1 className="text-4xl font-bold mb-8">Norse Gods</h1>
+
+      {loading && (
+        <div className="text-center py-8">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+          <p className="mt-4">Carregando deuses...</p>
         </div>
+      )}
+
+      {error && (
+        <div className="text-red-600 bg-red-100 p-4 rounded-lg mb-6">
+          {error}
+        </div>
+      )}
+
+      {!loading && !error && posts.length === 0 && (
+        <div className="text-center py-8">
+          <p>Nenhum deus disponível ainda.</p>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <Link
+            key={post.id}
+            to={`/gods/${post.slug}`}
+            className="block hover:opacity-90 transition-opacity"
+          >
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              {post.coverPhoto && (
+                <img
+                  src={post.coverPhoto.url}
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
+                />
+              )}
+              <div className="p-4">
+                <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+                {post.author && (
+                  <div className="flex items-center text-sm text-gray-600">
+                    {post.author.avatar && (
+                      <img
+                        src={post.author.avatar.url}
+                        alt={post.author.name}
+                        className="w-6 h-6 rounded-full mr-2"
+                      />
+                    )}
+                    <span>{post.author.name}</span>
+                    <span className="mx-2">•</span>
+                    <span>
+                      {new Date(post.datePublished).toLocaleDateString()}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
 }
 
-export default Gods();
+export default Gods;
