@@ -16,7 +16,7 @@ export const Loading = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center space-y-4">
       <div className={`relative ${sizes[size]}`}>
         {/* Yggdrasil (World Tree) inspired loading animation */}
         <motion.div
@@ -27,93 +27,79 @@ export const Loading = ({
             duration: 2,
             repeat: Infinity,
             repeatType: "reverse",
+            ease: "easeInOut",
           }}
         >
           <svg viewBox="0 0 100 100" className="w-full h-full">
-            <g fill="none" stroke="currentColor" strokeWidth="2">
-              {/* Tree trunk */}
-              <motion.path
-                d="M50,80 L50,20"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="text-red-500"
-              />
-              {/* Branches */}
-              {[0, 1, 2].map((i) => (
-                <motion.path
-                  key={i}
-                  d={`M50,${40 + i * 15} L${30 + i * 5},${30 + i * 15} M50,${
-                    40 + i * 15
-                  } L${70 - i * 5},${30 + i * 15}`}
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
-                  className="text-red-400"
-                />
-              ))}
-              {/* Roots */}
-              {[0, 1, 2].map((i) => (
-                <motion.path
-                  key={i}
-                  d={`M50,80 L${30 + i * 20},95`}
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
-                  className="text-red-600"
-                />
-              ))}
-            </g>
-          </svg>
-        </motion.div>
+            {/* Tree roots */}
+            <motion.path
+              d="M50 70 L30 90 M50 70 L50 90 M50 70 L70 90"
+              stroke="currentColor"
+              strokeWidth="2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
+              className="text-red-400"
+            />
 
-        {/* Rotating rune circle */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        >
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <path
-              d="M50,5 A45,45 0 1,1 49.9999,5"
+            {/* Tree trunk */}
+            <motion.path
+              d="M50 70 L50 30"
+              stroke="currentColor"
+              strokeWidth="3"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="text-red-500"
+            />
+
+            {/* Tree branches */}
+            <motion.path
+              d="M50 50 L30 40 M50 50 L70 40 M50 40 L30 30 M50 40 L70 30 M50 30 L30 20 M50 30 L70 20"
+              stroke="currentColor"
+              strokeWidth="2"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
+              className="text-red-300"
+            />
+
+            {/* Rune circles */}
+            <motion.circle
+              cx="50"
+              cy="50"
+              r="35"
               fill="none"
               stroke="currentColor"
-              strokeWidth="0.5"
-              className="text-red-500/30"
+              strokeWidth="1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.2 }}
+              transition={{ duration: 1 }}
+              className="text-red-400"
             />
-            {/* Add 8 runes around the circle */}
-            {[...Array(8)].map((_, i) => (
-              <g
-                key={i}
-                transform={`rotate(${i * 45} 50 50) translate(50 10)`}
-                className="text-red-400"
-              >
-                <text
-                  x="0"
-                  y="0"
-                  textAnchor="middle"
-                  fontSize="8"
-                  fill="currentColor"
-                  transform="rotate(90)"
-                >
-                  ᚨ
-                </text>
-              </g>
-            ))}
+            <motion.circle
+              cx="50"
+              cy="50"
+              r="45"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.1 }}
+              transition={{ duration: 1.5 }}
+              className="text-red-300"
+            />
           </svg>
         </motion.div>
       </div>
-      <motion.p
-        className="mt-4 text-lg text-gray-300 norse-title"
+      <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="text-lg font-mjolnir tracking-wider text-red-400"
       >
         {text}
-      </motion.p>
+      </motion.span>
     </div>
   );
 };
