@@ -1,3 +1,8 @@
+:root {
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --hover-duration: 500ms;
+}
+
 @layer components {
 
   /* Norse-themed Containers */
@@ -36,14 +41,35 @@
 
   /* Norse UI Elements */
   .norse-card {
-    @apply bg-gray-800/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg relative;
+    @apply bg-gray-800/80 backdrop-blur-sm rounded-lg overflow-hidden relative;
     border: 1px solid rgba(220, 38, 38, 0.2);
-    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.1);
+    box-shadow:
+      0 4px 20px rgba(220, 38, 38, 0.1),
+      0 0 0 1px rgba(220, 38, 38, 0.1) inset;
+    transition:
+      transform var(--hover-duration) var(--transition-timing),
+      box-shadow var(--hover-duration) var(--transition-timing);
+    transform-style: preserve-3d;
+    perspective: 1000px;
   }
 
   .norse-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(220, 38, 38, 0.1),
+        transparent 40%);
+    transition: opacity var(--hover-duration) var(--transition-timing);
+    filter: blur(10px);
+  }
+
+  .norse-card:hover {
+    border-color: rgba(220, 38, 38, 0.3);
+    box-shadow:
+      0 20px 40px rgba(220, 38, 38, 0.2),
+      0 0 20px rgba(220, 38, 38, 0.15) inset,
+      0 0 0 1px rgba(220, 38, 38, 0.3) inset;
+    transform: translateY(-5px) rotateX(2deg);
   }
 
   .norse-card:hover::before {
@@ -51,25 +77,52 @@
   }
 
   .norse-button {
-    @apply relative px-6 py-3 font-mjolnir text-lg text-white transition-all duration-300 overflow-hidden;
+    @apply relative px-6 py-3 font-mjolnir text-lg text-white overflow-hidden rounded-md;
     background: linear-gradient(45deg, #991B1B, #7C1D1D);
     border: 1px solid rgba(220, 38, 38, 0.3);
+    transition: all var(--hover-duration) var(--transition-timing);
   }
 
   .norse-button:hover {
     background: linear-gradient(45deg, #B91C1C, #991B1B);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+      0 6px 15px -3px rgba(220, 38, 38, 0.4),
+      0 0 25px rgba(220, 38, 38, 0.2),
+      0 0 0 1px rgba(220, 38, 38, 0.4) inset;
+    letter-spacing: 0.2em;
   }
 
   .norse-button::before {
     content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: url('/src/assets/mythology/rune-pattern.svg') repeat;
+    @apply absolute inset-0 opacity-0;
+    background:
+      url('/src/assets/mythology/rune-pattern.svg') repeat,
+      radial-gradient(100% 100% at 50% 0%,
+        rgba(220, 38, 38, 0.4),
+        transparent);
+    mask-image: linear-gradient(to bottom, transparent, black);
+    transition: all var(--hover-duration) var(--transition-timing);
+    transform: translateY(100%);
   }
 
   .norse-button:hover::before {
-    @apply opacity-10;
+    @apply opacity-100;
+    transform: translateY(0);
+  }
+
+  .norse-button::after {
+    content: '';
+    @apply absolute inset-0 opacity-0;
+    background: radial-gradient(60% 100% at 50% 100%,
+        rgba(220, 38, 38, 0.6),
+        transparent);
+    transition: all var(--hover-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .norse-button:hover::after {
+    @apply opacity-100;
+    transform: translateY(-20%) scale(1.2);
   }
 
   /* Mobile optimization */

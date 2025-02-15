@@ -40,19 +40,19 @@ export function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mythology" element={<Mythology />} />
-        <Route path="/gods" element={<Gods />} />
-        <Route path="/beings" element={<Beings />} />
-        <Route path="/realms" element={<Realms />} />
+        <Route path="/mythology/gods" element={<Gods />} />
+        <Route path="/mythology/beings" element={<Beings />} />
+        <Route path="/mythology/realms" element={<Realms />} />
         <Route
-          path="/gods/:slug"
+          path="/mythology/gods/:slug"
           element={<CategoryArticleWrapper category="gods" />}
         />
         <Route
-          path="/beings/:slug"
+          path="mythology//beings/:slug"
           element={<CategoryArticleWrapper category="beings" />}
         />
         <Route
-          path="/realms/:slug"
+          path="/mythology/realms/:slug"
           element={<CategoryArticleWrapper category="realms" />}
         />
         <Route path="*" element={<PageNotFound />} />

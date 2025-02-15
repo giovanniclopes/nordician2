@@ -17,7 +17,7 @@ export function Mythology() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="pt-28 pb-10 mbl:pt-24 container mx-auto px-4"
+        className="pb-10 mbl:pt-24 container mx-auto px-4"
       >
         <div className="text-center mb-16">
           <motion.h1
@@ -51,7 +51,7 @@ export function Mythology() {
               label="Asgard, Midgard, etc."
               title="Reinos"
               description="Todos os noves reinos da mitologia nórdica, desde as alturas radiantes de Asgard até as profundezas geladas de Niflheim."
-              link="/realms"
+              link="/mythology/realms"
             />
           </motion.div>
 
@@ -66,7 +66,7 @@ export function Mythology() {
               label="Hel, Fenrir, etc."
               title="Criaturas"
               description="Das ferozes criaturas das lendas aos seres místicos que habitam os nove reinos."
-              link="/beings"
+              link="/mythology/beings"
             />
           </motion.div>
 
@@ -81,7 +81,7 @@ export function Mythology() {
               label="Odin, Thor, etc."
               title="Deuses"
               description="Os poderosos Æsir e Vanir que governam os reinos e moldam o destino de todos os seres."
-              link="/gods"
+              link="/mythology/gods"
             />
           </motion.div>
         </div>

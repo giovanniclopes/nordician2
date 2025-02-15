@@ -102,7 +102,10 @@ export function Beings() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
               >
-                <Link to={`/beings/${post.slug}`} className="block group">
+                <Link
+                  to={`/mythology/beings/${post.slug}`}
+                  className="block group"
+                >
                   <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-300 group-hover:scale-[1.02]">
                     {post.coverPhoto && (
                       <div className="relative h-64 overflow-hidden">

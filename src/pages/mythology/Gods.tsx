@@ -35,7 +35,7 @@ export function Gods() {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <Navbar />
 
-      <div className="pt-28 pb-10 container mx-auto px-4">
+      <div className="pt-16 pb-10 container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,10 @@ export function Gods() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
               >
-                <Link to={`/gods/${post.slug}`} className="block group">
+                <Link
+                  to={`/mythology/gods/${post.slug}`}
+                  className="block group"
+                >
                   <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-300 group-hover:scale-[1.02]">
                     {post.coverPhoto && (
                       <div className="relative h-64 overflow-hidden">

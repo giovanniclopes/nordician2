@@ -23,10 +23,11 @@ export default function Navbar() {
 
   const navLinks = [
     { title: "Home", path: "/" },
-    { title: "Mythology", path: "/mythology" },
-    { title: "Gods", path: "/gods" },
-    { title: "Beings", path: "/beings" },
-    { title: "Realms", path: "/realms" },
+    { title: "Mitologia", path: "/mythology" },
+    { title: "História", path: "/history" },
+    // { title: "Deuses", path: "/gods" },
+    // { title: "Criaturas", path: "/beings" },
+    // { title: "Reinos", path: "/realms" },
   ];
 
   return (

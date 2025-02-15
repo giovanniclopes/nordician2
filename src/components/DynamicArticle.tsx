@@ -3,7 +3,7 @@ import { client } from "../lib/graphql/client";
 import { GET_POST_BY_SLUG } from "../lib/graphql/queries";
 import { Post } from "../lib/graphql/types";
 import Navbar from "../components/Navbar";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Loading } from "./Loading";
 
@@ -148,17 +148,19 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
 
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="norse-button px-4 py-1 text-sm rounded-full flex items-center gap-2">
-                      {CategoryIcons[category]}
-                      <span className="capitalize">{category}</span>
-                    </span>
+                    <Link to={`/${category}`} className="block">
+                      <span className="norse-button px-4 py-1 text-sm rounded-full flex items-center gap-2">
+                        {CategoryIcons[category]}
+                        <span className="capitalize">{category}</span>
+                      </span>
+                    </Link>
                   </div>
 
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    className="norse-title text-5xl mb-4 relative inline-block"
+                    className="norse-title text-5xl font-semibold mb-4 relative inline-block"
                   >
                     {post.title}
                     <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50" />
@@ -214,13 +216,15 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
                 dangerouslySetInnerHTML={{ __html: post.content.html }}
                 className="relative"
               />
-              <div className="mt-16 pt-8 border-t border-red-500/20">
-                <div className="text-sm text-gray-400 flex items-center gap-2">
+              <div className="flex items-center justify-start mt-16 pt-8 border-t border-red-500/20">
+                <div className="text-lg flex items-center gap-2">
                   <span className="text-red-400">
                     {CategoryIcons[category]}
                   </span>
                   <span>Categoria: </span>
-                  <span className="text-red-400 capitalize">{category}</span>
+                  <Link to={`/${category}`} className="text-red-400">
+                    <span className="text-red-400 capitalize">{category}</span>
+                  </Link>
                 </div>
               </div>
             </motion.div>
