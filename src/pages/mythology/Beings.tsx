@@ -64,7 +64,7 @@ export function Beings() {
           {loading && (
             <div className="flex items-center justify-center h-[40vh]">
               <div className="text-center">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-500 mx-auto"></div>
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-500 mx-auto"></div>
                 <p className="mt-4 text-xl text-gray-300">
                   Carregando criaturas...
                 </p>
@@ -124,14 +124,14 @@ export function Beings() {
                             <img
                               src={post.author.avatar.url}
                               alt={post.author.name}
-                              className="w-8 h-8 rounded-full border-2 border-purple-500 mr-3"
+                              className="w-8 h-8 rounded-full border-2 border-red-500 mr-3"
                             />
                           )}
                           <div>
                             <span className="block font-medium">
                               {post.author.name}
                             </span>
-                            <span className="text-purple-400">
+                            <span className="text-red-400">
                               {new Date(post.datePublished).toLocaleDateString(
                                 "pt-BR",
                                 {

@@ -39,7 +39,7 @@ export const BackgroundEffect = () => {
             duration: 10,
             ease: "linear"
           }}
-          className="absolute text-purple-500/20 text-2xl font-mjolnir"
+          className="absolute text-red-500/20 text-2xl font-mjolnir"
         >
           {rune.symbol}
         </motion.div>

@@ -38,7 +38,7 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-purple-500/30 text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-red-500/30 text-red-400 hover:text-red-300 transition-colors duration-300 group"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -57,14 +57,14 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
                 />
                 {/* Decorative runes */}
                 <text x="3" y="18" fill="currentColor" fontSize="4" className="font-mjolnir">
-                  ᚢᚤ
+                   ᚢᚤ
                 </text>
                 <text x="17" y="18" fill="currentColor" fontSize="4" className="font-mjolnir">
                   ᚢᚤ
                 </text>
               </svg>
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-purple-500/20 blur-md" />
+              <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-500/20 blur-md" />
             </div>
           </motion.button>
         )}

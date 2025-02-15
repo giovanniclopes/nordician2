@@ -128,7 +128,7 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
                     className="norse-title text-5xl mb-4 relative inline-block"
                   >
                     {post.title}
-                    <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
+                    <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50" />
                   </motion.h1>
                   
                   {post.author && (
@@ -140,7 +140,7 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
                     >
                       {post.author.avatar && (
                         <div className="relative">
-                          <div className="absolute inset-0 rounded-full border border-purple-500/50 rune-glow" />
+                          <div className="absolute inset-0 rounded-full border border-red-500/50 rune-glow" />
                           <img
                             src={post.author.avatar.url}
                             alt={post.author.name}
@@ -150,7 +150,7 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
                       )}
                       <div className="ml-4">
                         <p className="font-medium text-lg text-gray-200">{post.author.name}</p>
-                        <p className="text-purple-400">
+                        <p className="text-red-400">
                           {new Date(post.datePublished).toLocaleDateString('pt-BR', {
                             day: 'numeric',
                             month: 'long',
@@ -176,11 +176,11 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
                 dangerouslySetInnerHTML={{ __html: post.content.html }}
                 className="relative"
               />
-              <div className="mt-16 pt-8 border-t border-purple-500/20">
+              <div className="mt-16 pt-8 border-t border-red-500/20">
                 <div className="text-sm text-gray-400 flex items-center gap-2">
-                  <span className="text-purple-400">{CategoryIcons[category]}</span>
+                  <span className="text-red-400">{CategoryIcons[category]}</span>
                   <span>Categoria: </span>
-                  <span className="text-purple-400 capitalize">{category}</span>
+                  <span className="text-red-400 capitalize">{category}</span>
                 </div>
               </div>
             </motion.div>

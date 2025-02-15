@@ -12,8 +12,8 @@
 
   .rune-border::before {
     content: '';
-    @apply absolute inset-0 border-2 border-purple-500/30;
-    background: linear-gradient(45deg, transparent 30%, rgba(147, 51, 234, 0.1) 50%, transparent 70%);
+    @apply absolute inset-0 border-2 border-red-500/30;
+    background: linear-gradient(45deg, transparent 30%, rgba(220, 38, 38, 0.1) 50%, transparent 70%);
     mask-image: url('/src/assets/mythology/rune-border.svg');
     mask-size: 100% 100%;
   }
@@ -21,7 +21,7 @@
   /* Norse Typography */
   .norse-title {
     @apply font-mjolnir tracking-wide;
-    text-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
   }
 
   .rune-text {
@@ -30,19 +30,19 @@
 
   .rune-text::after {
     content: '';
-    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50;
+    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50;
   }
 
   /* Norse UI Elements */
   .norse-card {
     @apply bg-gray-800/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg relative;
-    border: 1px solid rgba(147, 51, 234, 0.2);
-    box-shadow: 0 4px 20px rgba(147, 51, 234, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.1);
   }
 
   .norse-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 transition-opacity duration-300;
   }
 
   .norse-card:hover::before {
@@ -51,14 +51,14 @@
 
   .norse-button {
     @apply relative px-6 py-3 font-mjolnir text-lg text-white transition-all duration-300 overflow-hidden;
-    background: linear-gradient(45deg, #2c1810, #4a1d3d);
-    border: 1px solid rgba(147, 51, 234, 0.3);
+    background: linear-gradient(45deg, #991B1B, #7C1D1D);
+    border: 1px solid rgba(220, 38, 38, 0.3);
   }
 
   .norse-button:hover {
-    background: linear-gradient(45deg, #3d1d12, #6a2459);
+    background: linear-gradient(45deg, #B91C1C, #991B1B);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.2);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
   }
 
   .norse-button::before {
@@ -93,7 +93,7 @@
 
   .norse-hover-effect:hover {
     @apply transform scale-105;
-    box-shadow: 0 0 30px rgba(147, 51, 234, 0.2);
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.2);
   }
 
   .rune-glow {
@@ -129,9 +129,9 @@
     @apply absolute -bottom-2 left-0 right-0 h-px;
     background: linear-gradient(90deg, 
       transparent 0%, 
-      rgba(147, 51, 234, 0.2) 25%, 
-      rgba(147, 51, 234, 0.5) 50%, 
-      rgba(147, 51, 234, 0.2) 75%, 
+      rgba(220, 38, 38, 0.2) 25%, 
+      rgba(220, 38, 38, 0.5) 50%, 
+      rgba(220, 38, 38, 0.2) 75%, 
       transparent 100%
     );
   }
@@ -142,7 +142,7 @@
 
   .prose a::before {
     content: '';
-    @apply absolute inset-0 bg-purple-500/10 -skew-x-6 scale-x-0 transition-transform duration-300 origin-left;
+    @apply absolute inset-0 bg-red-500/10 -skew-x-6 scale-x-0 transition-transform duration-300 origin-left;
   }
 
   .prose a:hover::before {
@@ -155,7 +155,7 @@
 
   .prose blockquote::before {
     content: '';
-    @apply absolute top-0 left-0 w-1 h-full bg-purple-500/30;
+    @apply absolute top-0 left-0 w-1 h-full bg-red-500/30;
     mask-image: url('/src/assets/mythology/rune-pattern.svg');
     mask-size: cover;
   }
@@ -166,19 +166,19 @@
 
   .prose ul li::before {
     content: '⚔️';
-    @apply absolute left-0 text-purple-400 opacity-70;
+    @apply absolute left-0 text-red-400 opacity-70;
   }
 
   .prose table {
-    @apply relative overflow-hidden rounded-lg border border-purple-500/20 my-8;
+    @apply relative overflow-hidden rounded-lg border border-red-500/20 my-8;
   }
 
   .prose th {
-    @apply bg-purple-900/20 font-mjolnir tracking-wide text-lg py-3 px-4;
+    @apply bg-red-900/20 font-mjolnir tracking-wide text-lg py-3 px-4;
   }
 
   .prose td {
-    @apply border-t border-purple-500/10 py-2 px-4;
+    @apply border-t border-red-500/10 py-2 px-4;
   }
 
   .prose tbody tr {
@@ -186,7 +186,7 @@
   }
 
   .prose tbody tr:hover {
-    @apply bg-purple-500/5;
+    @apply bg-red-500/5;
   }
 
   /* Enhanced Loading States */
@@ -199,7 +199,7 @@
     @apply absolute inset-0 rounded-full;
     background: conic-gradient(
       transparent 0deg,
-      rgba(147, 51, 234, 0.5) 180deg,
+      rgba(220, 38, 38, 0.5) 180deg,
       transparent 360deg
     );
     animation: rotate 2s linear infinite;

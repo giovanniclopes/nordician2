@@ -36,13 +36,13 @@ export function Categories({
 
         <div className="relative h-full flex flex-col justify-end p-8">
           <div className="space-y-4">
-            <span className="inline-block px-4 py-1 text-sm bg-purple-900/50 rounded-full font-medium border border-purple-500/20 backdrop-blur-sm">
+            <span className="inline-block px-4 py-1 text-sm bg-red-900/50 rounded-full font-medium border border-red-500/20 backdrop-blur-sm">
               {label}
             </span>
             
             <h3 className="norse-title text-3xl relative">
               {title}
-              <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
+              <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50" />
             </h3>
             
             <p className="text-gray-300 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
@@ -51,7 +51,7 @@ export function Categories({
             
             <motion.div 
               whileHover={{ x: 5 }}
-              className="pt-4 flex items-center text-purple-400 font-medium group-hover:text-purple-300"
+              className="pt-4 flex items-center text-red-400 font-medium group-hover:text-red-300"
             >
               <span className="rune-text">Explorar {title.toLowerCase()}</span>
               <svg

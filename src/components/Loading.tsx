@@ -35,7 +35,7 @@ export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProp
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="text-purple-500"
+                className="text-red-500"
               />
               {/* Branches */}
               {[0, 1, 2].map((i) => (
@@ -46,7 +46,7 @@ export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProp
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
-                  className="text-purple-400"
+                  className="text-red-400"
                 />
               ))}
               {/* Roots */}
@@ -58,7 +58,7 @@ export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProp
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
-                  className="text-purple-600"
+                  className="text-red-600"
                 />
               ))}
             </g>
@@ -77,14 +77,14 @@ export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProp
               fill="none"
               stroke="currentColor"
               strokeWidth="0.5"
-              className="text-purple-500/30"
+              className="text-red-500/30"
             />
             {/* Add 8 runes around the circle */}
             {[...Array(8)].map((_, i) => (
               <g
                 key={i}
                 transform={`rotate(${i * 45} 50 50) translate(50 10)`}
-                className="text-purple-400"
+                className="text-red-400"
               >
                 <text
                   x="0"

@@ -22,6 +22,7 @@ module.exports = {
         mjolnir: ["Mjolnir", "sans-serif"],
         nordica: "Nordica, Arial, sans-serif",
         poppins: ["Poppins", "sans-serif"],
+        norse: ['linotype-nordica', 'serif'],
       },
       colors: {
         gray: {
@@ -70,8 +71,8 @@ module.exports = {
       },
       keyframes: {
         runeGlow: {
-          '0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(147, 51, 234, 0.5))' },
-          '50%': { filter: 'drop-shadow(0 0 15px rgba(147, 51, 234, 0.8))' },
+          '0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(220, 38, 38, 0.5))' },
+          '50%': { filter: 'drop-shadow(0 0 15px rgba(220, 38, 38, 0.8))' },
         },
         floatRune: {
           '0%, 100%': { transform: 'translateY(0)' },
@@ -88,15 +89,15 @@ module.exports = {
             '--tw-prose-body': theme('colors.gray[300]'),
             '--tw-prose-headings': theme('colors.white'),
             '--tw-prose-lead': theme('colors.gray[300]'),
-            '--tw-prose-links': theme('colors.purple[400]'),
+            '--tw-prose-links': theme('colors.red[400]'),
             '--tw-prose-bold': theme('colors.white'),
             '--tw-prose-counters': theme('colors.gray[400]'),
             '--tw-prose-bullets': theme('colors.gray[600]'),
             '--tw-prose-hr': theme('colors.gray[700]'),
             '--tw-prose-quotes': theme('colors.gray[300]'),
-            '--tw-prose-quote-borders': theme('colors.purple[500]'),
+            '--tw-prose-quote-borders': theme('colors.red[500]'),
             '--tw-prose-captions': theme('colors.gray[400]'),
-            '--tw-prose-code': theme('colors.purple[300]'),
+            '--tw-prose-code': theme('colors.red[300]'),
             '--tw-prose-pre-code': theme('colors.gray[300]'),
             '--tw-prose-pre-bg': theme('colors.gray[800]'),
             '--tw-prose-invert-th-borders': theme('colors.gray[700]'),

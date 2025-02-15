@@ -50,7 +50,7 @@ export default function Navbar() {
                 whileHover={{ rotate: [0, -10, 10, -5, 0] }}
                 transition={{ duration: 0.5 }}
               />
-              <span className="font-mjolnir text-xl text-white group-hover:text-purple-400 transition-colors duration-300">
+              <span className="font-mjolnir text-xl text-white group-hover:text-red-400 transition-colors duration-300">
                 Nordician
               </span>
             </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
                   to={link.path}
                   className={`px-4 py-2 rounded-lg text-lg transition-all duration-200 font-medium hover:bg-white/10 ${
                     location.pathname === link.path
-                      ? "text-purple-400 bg-white/5"
+                      ? "text-red-400 bg-white/5"
                       : "text-gray-300 hover:text-white"
                   }`}
                 >
@@ -113,7 +113,7 @@ export default function Navbar() {
                       to={link.path}
                       className={`block px-4 py-2 text-lg rounded-lg transition-colors duration-200 ${
                         location.pathname === link.path
-                          ? "text-purple-400 bg-white/5"
+                          ? "text-red-400 bg-white/5"
                           : "text-gray-300 hover:text-white hover:bg-white/10"
                       }`}
                     >
