@@ -44,7 +44,12 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
           >
             <div className="relative">
               {/* Norse-themed arrow with runes */}
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <motion.path
                   d="M12 20V4M12 4L6 10M12 4L18 10"
                   stroke="currentColor"
@@ -56,10 +61,22 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
                   transition={{ duration: 1, repeat: Infinity }}
                 />
                 {/* Decorative runes */}
-                <text x="3" y="18" fill="currentColor" fontSize="4" className="font-mjolnir">
-                   ᚢᚤ
+                <text
+                  x="3"
+                  y="18"
+                  fill="currentColor"
+                  fontSize="4"
+                  className="font-mjolnir"
+                >
+                  ᚢᚤ
                 </text>
-                <text x="17" y="18" fill="currentColor" fontSize="4" className="font-mjolnir">
+                <text
+                  x="17"
+                  y="18"
+                  fill="currentColor"
+                  fontSize="4"
+                  className="font-mjolnir"
+                >
                   ᚢᚤ
                 </text>
               </svg>

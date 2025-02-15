@@ -39,17 +39,17 @@ export function Categories({
             <span className="inline-block px-4 py-1 text-sm bg-red-900/50 rounded-full font-medium border border-red-500/20 backdrop-blur-sm">
               {label}
             </span>
-            
+
             <h3 className="norse-title text-3xl relative">
               {title}
               <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50" />
             </h3>
-            
+
             <p className="text-gray-300 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
               {description}
             </p>
-            
-            <motion.div 
+
+            <motion.div
               whileHover={{ x: 5 }}
               className="pt-4 flex items-center text-red-400 font-medium group-hover:text-red-300"
             >

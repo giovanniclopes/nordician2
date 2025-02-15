@@ -5,7 +5,10 @@ interface LoadingProps {
   text?: string;
 }
 
-export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProps) => {
+export const Loading = ({
+  size = "medium",
+  text = "Carregando...",
+}: LoadingProps) => {
   const sizes = {
     small: "w-16 h-16",
     medium: "w-24 h-24",
@@ -41,7 +44,9 @@ export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProp
               {[0, 1, 2].map((i) => (
                 <motion.path
                   key={i}
-                  d={`M50,${40 + i * 15} L${30 + i * 5},${30 + i * 15} M50,${40 + i * 15} L${70 - i * 5},${30 + i * 15}`}
+                  d={`M50,${40 + i * 15} L${30 + i * 5},${30 + i * 15} M50,${
+                    40 + i * 15
+                  } L${70 - i * 5},${30 + i * 15}`}
                   strokeLinecap="round"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -64,7 +69,7 @@ export const Loading = ({ size = "medium", text = "Carregando..." }: LoadingProp
             </g>
           </svg>
         </motion.div>
-        
+
         {/* Rotating rune circle */}
         <motion.div
           className="absolute inset-0"
