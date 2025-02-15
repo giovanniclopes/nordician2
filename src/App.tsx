@@ -1,13 +1,15 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { Router as AllRoutes } from "./Router";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
+import { BackgroundEffect } from "./components/BackgroundEffect";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <ScrollToTop />
-      <AllRoutes />
-    </Router>
+      <BackgroundEffect />
+      <Router />
+    </BrowserRouter>
   );
 }
 

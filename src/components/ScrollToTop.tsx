@@ -1,7 +1,5 @@
-import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import classNames from "classnames";
+import { motion, AnimatePresence } from "framer-motion";
 
 type ScrollToTopProps = {
   children?: React.ReactNode;
@@ -9,19 +7,19 @@ type ScrollToTopProps = {
 
 export const ScrollToTop = ({ children }: ScrollToTopProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
 
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 250) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -30,28 +28,47 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
     });
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => {
-      window.removeEventListener("scroll", toggleVisibility);
-    };
-  }, []);
-
   return (
     <>
       {children}
-      <div className="z-50 fixed bottom-2 right-2">
-        <button
-          type="button"
-          onClick={scrollToTop}
-          className={classNames(
-            isVisible ? "opacity-100" : "opacity-0",
-            "z-50 bg-black bg-opacity-30 border-2 border-red-400 focus:ring-red-500 inline-flex items-center rounded-full p-3 shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2"
-          )}
-        >
-          <ChevronUpIcon className="h-8 w-8 text-red-400" aria-hidden="true" />
-        </button>
-      </div>
+      <AnimatePresence>
+        {isVisible && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-purple-500/30 text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <div className="relative">
+              {/* Norse-themed arrow with runes */}
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.path
+                  d="M12 20V4M12 4L6 10M12 4L18 10"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                />
+                {/* Decorative runes */}
+                <text x="3" y="18" fill="currentColor" fontSize="4" className="font-mjolnir">
+                  ᚢᚤ
+                </text>
+                <text x="17" y="18" fill="currentColor" fontSize="4" className="font-mjolnir">
+                  ᚢᚤ
+                </text>
+              </svg>
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-purple-500/20 blur-md" />
+            </div>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 };

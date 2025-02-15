@@ -8,7 +8,6 @@ import { Button } from "./../components/Button";
 export function Home() {
   return (
     <>
-      <ScrollToTop />
       <Navbar />
       <div
         id="section1"

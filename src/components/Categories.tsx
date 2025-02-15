@@ -20,36 +20,43 @@ export function Categories({
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="relative group rounded-xl overflow-hidden h-[450px] bg-gray-800 shadow-2xl"
+      className="norse-card rune-border h-[450px] relative group"
     >
       <Link to={link} className="block h-full">
         <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-90" />
           <img
             src={imageUrl}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-75" />
+          {/* Rune Overlay Pattern */}
+          <div className="absolute inset-0 bg-[url('/src/assets/mythology/rune-pattern.svg')] opacity-5 group-hover:opacity-10 transition-opacity duration-700" />
         </div>
 
-        <div className="relative h-full flex flex-col justify-end p-6 text-white">
-          <div className="space-y-3">
-            <span className="inline-block px-3 py-1 text-sm bg-purple-600 rounded-full font-medium">
+        <div className="relative h-full flex flex-col justify-end p-8">
+          <div className="space-y-4">
+            <span className="inline-block px-4 py-1 text-sm bg-purple-900/50 rounded-full font-medium border border-purple-500/20 backdrop-blur-sm">
               {label}
             </span>
-            <h3 className="text-2xl font-bold font-mjolnir tracking-wide">
+            
+            <h3 className="norse-title text-3xl relative">
               {title}
+              <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
             </h3>
-            <p className="text-gray-300 line-clamp-3">{description}</p>
-
-            <motion.div
+            
+            <p className="text-gray-300 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+              {description}
+            </p>
+            
+            <motion.div 
               whileHover={{ x: 5 }}
-              className="pt-4 flex items-center text-purple-400 font-medium"
+              className="pt-4 flex items-center text-purple-400 font-medium group-hover:text-purple-300"
             >
-              Explore {title.toLowerCase()}
+              <span className="rune-text">Explorar {title.toLowerCase()}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 ml-2"
+                className="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >

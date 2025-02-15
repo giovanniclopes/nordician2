@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/**.tsx"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -13,13 +13,15 @@ module.exports = {
         effect: "url(/src/assets/bg-effect.png)",
         gradient: "linear-gradient(-150deg, #131313, #000000, #131313)",
         blueGradient: "linear-gradient(-140deg, #7D8E85, #38454A, #212C30)",
-
         bgText: "url(/src/assets/mythology/realms/bg-musphelheim.webp)",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'rune-pattern': "url('/src/assets/mythology/rune-pattern.svg')",
+        'rune-border': "url('/src/assets/mythology/rune-border.svg')",
       },
       fontFamily: {
-        mjolnir: "Mjolnir, Arial, sans-serif",
+        mjolnir: ["Mjolnir", "sans-serif"],
         nordica: "Nordica, Arial, sans-serif",
-        poppins: "Poppins, sans-serif",
+        poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         gray: {
@@ -45,8 +47,64 @@ module.exports = {
         maroon: {
           100: "#DFC8AC",
         },
+        norse: {
+          // Yggdrasil greens
+          leaf: "#2D5A27",
+          forest: "#1A3A1A",
+          // Bifrost colors
+          rainbow: {
+            red: "#FF6B6B",
+            amber: "#FFC06B",
+            purple: "#9F7AEA",
+          },
+          // Asgard golds
+          gold: "#FFD700",
+          bronze: "#CD7F32",
+          // Niflheim ice
+          ice: "#A5F3FC",
+          frost: "#0891B2",
+          // Muspelheim fire
+          fire: "#DC2626",
+          ember: "#991B1B",
+        },
       },
+      keyframes: {
+        runeGlow: {
+          '0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(147, 51, 234, 0.5))' },
+          '50%': { filter: 'drop-shadow(0 0 15px rgba(147, 51, 234, 0.8))' },
+        },
+        floatRune: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        'rune-glow': 'runeGlow 4s infinite',
+        'float-rune': 'floatRune 3s infinite',
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': theme('colors.gray[300]'),
+            '--tw-prose-headings': theme('colors.white'),
+            '--tw-prose-lead': theme('colors.gray[300]'),
+            '--tw-prose-links': theme('colors.purple[400]'),
+            '--tw-prose-bold': theme('colors.white'),
+            '--tw-prose-counters': theme('colors.gray[400]'),
+            '--tw-prose-bullets': theme('colors.gray[600]'),
+            '--tw-prose-hr': theme('colors.gray[700]'),
+            '--tw-prose-quotes': theme('colors.gray[300]'),
+            '--tw-prose-quote-borders': theme('colors.purple[500]'),
+            '--tw-prose-captions': theme('colors.gray[400]'),
+            '--tw-prose-code': theme('colors.purple[300]'),
+            '--tw-prose-pre-code': theme('colors.gray[300]'),
+            '--tw-prose-pre-bg': theme('colors.gray[800]'),
+            '--tw-prose-invert-th-borders': theme('colors.gray[700]'),
+            '--tw-prose-invert-td-borders': theme('colors.gray[800]'),
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

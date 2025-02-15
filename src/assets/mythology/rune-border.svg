@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-width="1">
+    <!-- Rune border pattern -->
+    <path d="M10,0 L90,0 L100,10 L100,90 L90,100 L10,100 L0,90 L0,10 Z" />
+    <!-- Elder Futhark runes -->
+    <path d="M20,20 L30,80 M25,50 L35,50" /> <!-- Ansuz rune (for wisdom) -->
+    <path d="M70,20 L70,80 M60,50 L80,50" /> <!-- Othala rune (for heritage) -->
+    <path d="M45,20 L55,80" /> <!-- Tiwaz rune (for victory) -->
+  </g>
+</svg>
