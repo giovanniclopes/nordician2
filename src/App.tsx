@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { Router as AllRoutes } from "./Router";
-import ScrollToTop2 from './components/ScrollToTop2';
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
-      <ScrollToTop2 />
+      <ScrollToTop />
       <AllRoutes />
     </Router>
   );
