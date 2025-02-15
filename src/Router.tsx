@@ -10,7 +10,7 @@ import { useLoading } from "./components/LoadingProvider";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function NavigationWrapper({ children }: { children: React.ReactNode }) {
+function NavigationWrapper({ children }: { children: React.ReactNode }): JSX.Element {
   const { setLoading } = useLoading();
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ function NavigationWrapper({ children }: { children: React.ReactNode }) {
     return () => document.removeEventListener("click", handleClick);
   }, [navigate, setLoading]);
 
-  return children;
+  return <>{children}</>;
 }
 
 export function Router() {
