@@ -1,28 +1,60 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import GamesIllustration from "../assets/GamesIllustration.gif";
 import Navbar from "../components/Navbar";
 import { Button } from "./../components/Button";
+import { useMouseGlow } from "../hooks/useMouseGlow";
+import { Features } from "../components/Features";
+import { BackgroundRunes } from "../components/BackgroundRunes";
 
 export function Home() {
+  const heroCardRef = useMouseGlow();
+
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
+      <BackgroundRunes />
       <Navbar />
-      <div
-        id="section1"
-        className="h-max bg-main bg-cover pt-24 pb-16 mbl:pt-12 mbl:pb-0 mbl:bg-right"
+      
+      {/* Hero Section with Parallax */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="relative h-screen bg-main bg-cover bg-fixed overflow-hidden"
       >
-        <div className="flex items-center justify-center py-40 sm:py-32">
-          <div className="flex flex-col items-center justify-center gap-20">
-            <div className="flex flex-col items-center justify-center gap-4">
-              <h1 className="text-white text-8xl text-center font-bold mbl:text-5xl">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-gray-900"></div>
+        <div className="absolute inset-0 bg-[url('/src/assets/mythology/rune-pattern.svg')] opacity-5"></div>
+        
+        <div className="relative h-full flex items-center justify-center px-4">
+          <motion.div
+            ref={heroCardRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center space-y-8 p-12 rounded-lg backdrop-blur-sm border border-red-500/20 max-w-4xl"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="relative inline-block"
+            >
+              <h1 className="text-8xl font-mjolnir tracking-wide mbl:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-red-200/80">
                 Boas-vindas ao Mundo Nórdico
               </h1>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-6 text-gray-normal">
-              <p className="text-white text-opacity-50 text-xl font-light">
-                Escolha uma opção para saber mais
+              <div className="absolute -inset-x-6 -inset-y-4 bg-red-500/5 blur-xl -z-10 rounded-full"></div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="space-y-8"
+            >
+              <p className="text-red-200/80 text-xl font-light tracking-wide">
+                Explore as sagas dos deuses, mergulhe nas lendas dos reinos
               </p>
-              <div className="flex flex-row gap-6 items-center justify-center">
+              <div className="flex flex-row gap-6 items-center justify-center mbl:flex-col">
                 <Link to="/mythology">
                   <Button title="Mitologia" type="PRIMARY" />
                 </Link>
@@ -30,130 +62,193 @@ export function Home() {
                   <Button title="Realidade" type="SECUNDARY" />
                 </Link>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
-      <div
-        id="section2"
-        className="flex flex-col items-center justify-center gap-6 p-12"
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-red-400"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      {/* Introduction Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative py-24 px-6"
       >
-        <hr className="border border-maroon-100 w-2/3 mb-10" />
-        <p className="text-center w-3/4 mbl:w-auto">
-          Olá viajante, bem vinda(o) ao Nordician! <br />
-          Aqui forneço diversos artigos para quem busca por informações sobre a
-          cultura nórdica. <br /> Contendo artigos sobre o mundo real, e sobre o
-          mundo místico. <br /> No topo/menu deste site, você encontrará os
-          links:
-          <span className="text-maroon-100"> 'Mitologia'</span> e{" "}
-          <span className="text-maroon-100">'Realidade'</span>, onde estão
-          localizados todo o conteúdo nórdico. Aproveite! <br />
-        </p>
-        <p className="text-center w-3/4 text-maroon-100 mbl:w-auto">
-          E lembrando! os textos de todos os artigos podem estar no idioma
-          Dinamarquês ou Norueguês, para preservar a cultura e dar um aspecto
-          mais nórdico. Porém você pode facilmente traduzir a página, com a
-          solitação que você irá receber do Google Tradutor.
-        </p>
-        <hr className="border border-maroon-100 w-2/3 mt-10" />
-      </div>
-      <div
-        id="section3 games"
-        className="flex items-center justify-center p-5 mx-5 my-16"
-      >
-        <div className="grid grid-cols-2 gap-28  mbl:flex flex-col-reverse mbl:gap-20">
-          <div className="flex flex-col items-center justify-center gap-10 text-center mbl:items-center">
-            <div className="flex flex-col items-center gap-7 w-max mbl:w-96">
-              <h1 className="text-6xl mbl:text-5xl">Jogos Nórdicos</h1>
-              <hr className="border border-maroon-100 w-2/3" />
-              <p className="w-[35rem] mbl:w-96">
-                Aqui coloquei diversos jogos digitais, que tem como tema
-                principal o mundo viking.
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="text-center space-y-6">
+            <motion.div
+              initial={{ scale: 0.95 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              className="norse-card p-8 relative overflow-hidden"
+            >
+              <h2 className="text-3xl font-mjolnir mb-6 text-red-300">Bem-vindo ao Nordician</h2>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                Aqui você encontrará diversos artigos sobre a rica cultura nórdica, 
+                abrangendo tanto o mundo real quanto o místico.
               </p>
-            </div>
-            <div>
-              <Link to="/games">
-                <Button title="VER JOGOS" type="PRIMARY" />
-              </Link>
-            </div>
-          </div>
-          <div className="mbl:flex mbl:items-center mbl:justify-center">
-            <img
-              className="w-[30rem] mbl:w-80"
-              src={GamesIllustration}
-              alt="Páginas de jogos"
-              draggable="false"
-            />
+              <p className="text-red-400/80 italic">
+                Os textos podem estar em Dinamarquês ou Norueguês para preservar a autenticidade,
+                mas você pode facilmente traduzi-los com o tradutor do seu navegador.
+              </p>
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                <div className="w-full h-full bg-[url('/src/assets/mythology/rune-pattern.svg')] bg-contain"></div>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </div>
-      <div
-        id="section4 form"
-        className="flex flex-col justify-center mt-10 p-16 bg-effect bg-cover bg-fixed bg-no-repeat border-t-4 border-red-400"
+      </motion.div>
+
+      {/* Features Section */}
+      <Features />
+
+      {/* Games Section with Enhanced Layout */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative py-24 px-6 bg-gradient-to-b from-gray-800 to-gray-900"
       >
-        <div className="flex flex-col items-center gap-12">
-          <div className="flex flex-col items-center justify-center gap-3">
-            <h3 className="text-6xl w-max">Alguma dúvida?</h3>
-            <p>Entre em contato</p>
-            <hr className="border border-red-400 w-24" />
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 gap-12 items-center mbl:flex mbl:flex-col-reverse">
+            <motion.div
+              initial={{ x: -20 }}
+              whileInView={{ x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8 text-center"
+            >
+              <h2 className="text-6xl font-mjolnir text-red-300 tracking-wide mbl:text-4xl">
+                Jogos Nórdicos
+              </h2>
+              <div className="h-px bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50"></div>
+              <p className="text-xl text-gray-300 max-w-xl mx-auto">
+                Descubra uma seleção cuidadosa de jogos digitais que mergulham profundamente
+                no universo viking e na mitologia nórdica.
+              </p>
+              <Link to="/games">
+                <Button title="EXPLORAR JOGOS" type="PRIMARY" />
+              </Link>
+            </motion.div>
+            
+            <motion.div
+              initial={{ x: 20 }}
+              whileInView={{ x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent"></div>
+              <img
+                className="w-full max-w-2xl mx-auto rounded-lg mbl:w-80"
+                src={GamesIllustration}
+                alt="Jogos Nórdicos"
+                draggable="false"
+              />
+            </motion.div>
           </div>
-          <div className="max-w-xl w-full mbl:w-96">
+        </div>
+      </motion.div>
+
+      {/* Enhanced Contact Form Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative py-24 px-6 bg-effect bg-cover bg-fixed border-t-2 border-red-500/30"
+      >
+        <div className="absolute inset-0 bg-gray-900/70 backdrop-blur-sm"></div>
+        
+        <div className="relative max-w-4xl mx-auto">
+          <div className="text-center space-y-6 mb-12">
+            <h2 className="text-5xl font-mjolnir text-red-300">Alguma dúvida?</h2>
+            <p className="text-xl text-gray-300">Entre em contato conosco</p>
+            <div className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+          </div>
+
+          <motion.div
+            initial={{ y: 20 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            className="norse-card p-8"
+          >
             <form
               action="https://formsubmit.co/giovanniclopes@gmail.com"
               method="post"
-              className="flex flex-col gap-7 w-full"
+              className="space-y-6"
             >
-              <div className="flex flex-col gap-1">
-                <label htmlFor="name">
-                  Nome <span className="text-red-400">*</span>
+              <div className="space-y-2">
+                <label className="block text-red-300 font-medium">
+                  Nome <span className="text-red-500">*</span>
                 </label>
                 <input
-                  className="bg-gray-500 p-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-4 focus:border focus:border-red-400 focus:rounded-lg"
+                  className="w-full bg-gray-800/50 border border-red-500/20 p-3 rounded-lg text-gray-100 placeholder-gray-400
+                           focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-300"
                   type="text"
                   name="name"
-                  id="name"
-                  placeholder="me diga seu nome"
+                  placeholder="Seu nome"
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="email">
-                  Email <span className="text-red-400">*</span>
+
+              <div className="space-y-2">
+                <label className="block text-red-300 font-medium">
+                  Email <span className="text-red-500">*</span>
                 </label>
                 <input
-                  className="bg-gray-500 p-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-4 focus:border focus:border-red-400 focus:rounded-lg"
+                  className="w-full bg-gray-800/50 border border-red-500/20 p-3 rounded-lg text-gray-100 placeholder-gray-400
+                           focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-300"
                   type="email"
                   name="email"
-                  id="email"
-                  placeholder="me diga seu email"
+                  placeholder="seu.email@exemplo.com"
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="message">
-                  Sua mensagem <span className="text-red-400">*</span>
+
+              <div className="space-y-2">
+                <label className="block text-red-300 font-medium">
+                  Mensagem <span className="text-red-500">*</span>
                 </label>
                 <textarea
-                  className="bg-gray-500 p-2 px-3 rounded font-poppins text-lg transition-all outline-none placeholder:text-opacity-80 focus:p-3 focus:border focus:border-red-400 focus:rounded-lg"
+                  className="w-full bg-gray-800/50 border border-red-500/20 p-3 rounded-lg text-gray-100 placeholder-gray-400
+                           focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-300 min-h-[120px]"
                   name="message"
-                  id="message"
-                  cols={30}
-                  rows={2}
-                  placeholder="Olá! Eu gostaria de falar sobre {assunto}."
+                  placeholder="Sua mensagem aqui..."
                   required
                 ></textarea>
               </div>
-              <input
-                className="bg-red-400 p-3 cursor-pointer rounded hover:bg-opacity-75"
+
+              <button
                 type="submit"
-                value="Enviar mensagem"
-              />
-              <input type="hidden" name="_template" value="table"></input>
+                className="norse-button w-full py-4 text-lg font-mjolnir tracking-wide"
+              >
+                Enviar Mensagem
+              </button>
+              <input type="hidden" name="_template" value="table" />
             </form>
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </>
+      </motion.div>
+    </div>
   );
 }
 
