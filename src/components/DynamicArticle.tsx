@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { client } from "../lib/graphql/client";
-import { GET_POST_BY_SLUG } from "../lib/graphql/queries";
-import { Post } from "../lib/graphql/types";
-import Navbar from "../components/Navbar";
-import { Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import { client } from "../lib/graphql/client";
+import { GET_ALL_POSTS, GET_POST_BY_SLUG } from "../lib/graphql/queries";
+import { Post } from "../lib/graphql/types";
+import { ArticleRecommend } from "./ArticleRecommend";
 import { Loading } from "./Loading";
 
 interface DynamicArticleProps {
@@ -64,6 +65,7 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [recommendedPosts, setRecommendedPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -90,7 +92,27 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
       }
     };
 
+    const fetchRecommendedPosts = async () => {
+      try {
+        const result = await client.request<{ posts: Post[] }>(GET_ALL_POSTS);
+        // Filter out current post and select random posts
+        if (result.posts) {
+          const filteredPosts = result.posts.filter(
+            (post) => post.slug !== slug
+          );
+          // Shuffle array and get first 3 posts
+          const shuffledPosts = [...filteredPosts].sort(
+            () => 0.5 - Math.random()
+          );
+          setRecommendedPosts(shuffledPosts.slice(0, 3));
+        }
+      } catch (error) {
+        console.error("Erro ao buscar recomendações:", error);
+      }
+    };
+
     fetchPost();
+    fetchRecommendedPosts();
   }, [slug, category]);
 
   if (loading) {
@@ -124,11 +146,20 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
     return <Navigate to="/404" replace />;
   }
 
+  // Helper function to get category from tags
+  const getCategoryFromTags = (tags?: string[]): string => {
+    if (!tags || tags.length === 0) return "mythology";
+    if (tags.includes("gods")) return "gods";
+    if (tags.includes("beings")) return "beings";
+    if (tags.includes("realms")) return "realms";
+    return "mythology";
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white norse-container">
       <Navbar />
 
-      <article className="container mx-auto px-4 py-8">
+      <article className="container mx-auto px-4 py-8 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -226,6 +257,41 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
                     <span className="text-red-400 capitalize">{category}</span>
                   </Link>
                 </div>
+              </div>
+            </motion.div>
+          )}
+
+          {recommendedPosts.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="mt-16 pt-8 border-t border-red-500/20"
+            >
+              <h2 className="norse-title text-3xl mb-8 text-red-400">
+                Sagas Relacionadas
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {recommendedPosts.map((post) => {
+                  const postCategory = getCategoryFromTags(post.tags);
+                  return (
+                    <div key={post.id} className="w-full">
+                      <ArticleRecommend
+                        backgroundUrl={
+                          post.coverPhoto?.url || "/src/assets/viking.jpg"
+                        }
+                        title={post.title}
+                        description={
+                          post.author?.name
+                            ? `Por ${post.author.name}`
+                            : "Mitologia Nórdica"
+                        }
+                        link={`/mythology/${postCategory}/${post.slug}`}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           )}
