@@ -95,12 +95,10 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
     const fetchRecommendedPosts = async () => {
       try {
         const result = await client.request<{ posts: Post[] }>(GET_ALL_POSTS);
-        // Filter out current post and select random posts
         if (result.posts) {
           const filteredPosts = result.posts.filter(
             (post) => post.slug !== slug
           );
-          // Shuffle array and get first 3 posts
           const shuffledPosts = [...filteredPosts].sort(
             () => 0.5 - Math.random()
           );
@@ -146,7 +144,6 @@ export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
     return <Navigate to="/404" replace />;
   }
 
-  // Helper function to get category from tags
   const getCategoryFromTags = (tags?: string[]): string => {
     if (!tags || tags.length === 0) return "mythology";
     if (tags.includes("gods")) return "gods";

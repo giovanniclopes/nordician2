@@ -18,7 +18,6 @@ export const Loading = ({
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
       <div className={`relative ${sizes[size]}`}>
-        {/* Yggdrasil (World Tree) inspired loading animation */}
         <motion.div
           className="absolute inset-0"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -31,7 +30,6 @@ export const Loading = ({
           }}
         >
           <svg viewBox="0 0 100 100" className="w-full h-full">
-            {/* Tree roots */}
             <motion.path
               d="M50 70 L30 90 M50 70 L50 90 M50 70 L70 90"
               stroke="currentColor"
@@ -42,7 +40,6 @@ export const Loading = ({
               className="text-red-400"
             />
 
-            {/* Tree trunk */}
             <motion.path
               d="M50 70 L50 30"
               stroke="currentColor"
@@ -53,7 +50,6 @@ export const Loading = ({
               className="text-red-500"
             />
 
-            {/* Tree branches */}
             <motion.path
               d="M50 50 L30 40 M50 50 L70 40 M50 40 L30 30 M50 40 L70 30 M50 30 L30 20 M50 30 L70 20"
               stroke="currentColor"
@@ -64,7 +60,6 @@ export const Loading = ({
               className="text-red-300"
             />
 
-            {/* Rune circles */}
             <motion.circle
               cx="50"
               cy="50"

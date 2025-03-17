@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useMouseGlow } from "../hooks/useMouseGlow";
 
 interface CategoriesProps {
@@ -32,7 +32,6 @@ export function Categories({
       className="norse-card rune-border h-[450px] relative group overflow-hidden"
     >
       <Link to={link} className="block h-full">
-        {/* Background Image and Effects */}
         <div className="absolute inset-0 transform transition-transform duration-700 ease-out group-hover:scale-[1.03]">
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 from-50% via-gray-900/70 to-transparent opacity-90 transition-all duration-700 ease-out group-hover:opacity-80" />
           <img
@@ -44,9 +43,7 @@ export function Categories({
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out bg-gradient-to-t from-red-500/20 via-transparent to-transparent" />
         </div>
 
-        {/* Content Container */}
         <div className="relative h-full flex flex-col justify-between p-8">
-          {/* Top Content with Parallax Effect */}
           <div className="transform transition-all duration-500 ease-out group-hover:translate-y-[-8px]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

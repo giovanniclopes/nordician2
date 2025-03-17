@@ -61,10 +61,8 @@ export const BackgroundEffect = () => {
         </motion.div>
       ))}
 
-      {/* Vignette effect */}
       <div className="absolute inset-0 bg-gradient-radial from-transparent to-gray-900/30" />
 
-      {/* Norse pattern overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets/mythology/rune-pattern.svg')] opacity-[0.02]" />
     </div>
   );

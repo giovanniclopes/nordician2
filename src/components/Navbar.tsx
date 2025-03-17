@@ -1,6 +1,6 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/logo.png";
 
 export default function Navbar() {
@@ -51,12 +51,8 @@ export default function Navbar() {
                 whileHover={{ rotate: [0, -10, 10, -5, 0] }}
                 transition={{ duration: 0.5 }}
               />
-              <span className="font-mjolnir text-xl text-white group-hover:text-red-400 transition-colors duration-300">
-                Nordician
-              </span>
             </Link>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-1">
               {navLinks.map((link) => (
                 <Link
@@ -73,7 +69,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
@@ -97,7 +92,6 @@ export default function Navbar() {
             </motion.button>
           </div>
 
-          {/* Mobile Menu */}
           <AnimatePresence>
             {isOpen && (
               <motion.div

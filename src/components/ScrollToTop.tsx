@@ -1,5 +1,5 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 type ScrollToTopProps = {
   children?: React.ReactNode;
@@ -43,7 +43,6 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
             whileTap={{ scale: 0.9 }}
           >
             <div className="relative">
-              {/* Norse-themed arrow with runes */}
               <svg
                 className="w-6 h-6"
                 viewBox="0 0 24 24"
@@ -60,7 +59,6 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
-                {/* Decorative runes */}
                 <text
                   x="3"
                   y="18"
@@ -80,7 +78,6 @@ export const ScrollToTop = ({ children }: ScrollToTopProps) => {
                   ᚢᚤ
                 </text>
               </svg>
-              {/* Glow effect */}
               <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-500/20 blur-md" />
             </div>
           </motion.button>
