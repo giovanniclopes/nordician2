@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { CloseIcon, MenuIcon } from "./Icons";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,21 +75,17 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/10"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {isOpen ? (
+                <CloseIcon
+                  weight="bold"
+                  className="text-red-400 hover:text-red-300 transition-colors"
+                />
+              ) : (
+                <MenuIcon
+                  weight="bold"
+                  className="text-red-400 hover:text-red-300 transition-colors"
+                />
+              )}
             </motion.button>
           </div>
 

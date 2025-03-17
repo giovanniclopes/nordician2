@@ -1,11 +1,20 @@
 import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Book,
+  CaretDown,
+  DiscordLogo,
+  EnvelopeSimple,
+  InstagramLogo,
+  TwitterLogo,
+} from "phosphor-react";
 import { Link } from "react-router-dom";
 import GamesIllustration from "../assets/GamesIllustration.gif";
 import { BackgroundRunes } from "../components/BackgroundRunes";
+import { Button } from "../components/Button";
 import { Features } from "../components/Features";
 import Navbar from "../components/Navbar";
 import { useMouseGlow } from "../hooks/useMouseGlow";
-import { Button } from "./../components/Button";
 
 export function Home() {
   const heroCardRef = useMouseGlow();
@@ -58,11 +67,10 @@ export function Home() {
                   transition={{ duration: 1.5, delay: 0.5 }}
                 />
                 <svg
-                  className="w-8 h-8 text-red-300 opacity-70"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+                  className="w-16 h-16 fill-red-300 text-red-300 opacity-70"
+                  viewBox="0 2 728 678"
                 >
-                  <path d="M12,2L1,21H23L12,2M12,6L19.5,18H4.5L12,6z" />
+                  <path d="M19.5029,656.329H569.11L480.396,504.189H399.972L444.412,585.031H145.661L188.856,504.189H105.782ZM19.6543,494.568H195.586L235.73,423.863H143.757L293.602,164.479L340.068,241.734L381.741,169.869L293.602,19.5791ZM159.778,414.447H241.317L293.602,325.824L346.277,414.447H427.501L293.602,183.811ZM162.142,575.714H428.897L388.89,504.189H284.518L335.293,414.447L293.602,344.062ZM300.604,494.568H566.603L433.378,261.951L391.708,332.126L443.005,423.863H340.345ZM345.934,252.893L386.214,322.502L433.378,243.743L583.604,504.189H492.989L534.392,575.714H708.421L433.378,100.098Z" />
                 </svg>
                 <motion.div
                   className="h-1 w-16 bg-gradient-to-l from-transparent to-red-500/80"
@@ -208,19 +216,7 @@ export function Home() {
             <span className="text-red-300/80 text-sm font-mjolnir tracking-widest mb-2">
               EXPLORE
             </span>
-            <svg
-              className="w-6 h-6 text-red-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
+            <CaretDown weight="bold" className="w-6 h-6 text-red-400" />
           </motion.div>
         </motion.div>
       </motion.div>
@@ -441,40 +437,17 @@ export function Home() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                    <EnvelopeSimple
+                      weight="duotone"
                       className="h-5 w-5 text-red-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
+                    />
                   </div>
                   <span className="text-gray-300">contact@nordician.com</span>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-red-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                      />
-                    </svg>
+                    <Book weight="duotone" className="h-5 w-5 text-red-400" />
                   </div>
                   <span className="text-gray-300">
                     Entre na nossa comunidade no Discord
@@ -557,7 +530,7 @@ export function Home() {
                       Enviar Mensagem
                     </span>
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      →
+                      <ArrowRight className="inline" />
                     </span>
                   </button>
                   <input type="hidden" name="_template" value="table" />
@@ -727,24 +700,39 @@ export function Home() {
                 <li>
                   <a
                     href="#"
-                    className="hover:text-red-300 transition-colors duration-300"
+                    className="hover:text-red-300 transition-colors duration-300 flex items-center gap-2"
                   >
+                    <DiscordLogo
+                      size={18}
+                      weight="fill"
+                      className="text-red-400"
+                    />
                     Discord
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
-                    className="hover:text-red-300 transition-colors duration-300"
+                    className="hover:text-red-300 transition-colors duration-300 flex items-center gap-2"
                   >
+                    <TwitterLogo
+                      size={18}
+                      weight="fill"
+                      className="text-red-400"
+                    />
                     Twitter
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
-                    className="hover:text-red-300 transition-colors duration-300"
+                    className="hover:text-red-300 transition-colors duration-300 flex items-center gap-2"
                   >
+                    <InstagramLogo
+                      size={18}
+                      weight="fill"
+                      className="text-red-400"
+                    />
                     Instagram
                   </a>
                 </li>

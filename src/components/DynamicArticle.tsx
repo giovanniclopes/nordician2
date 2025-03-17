@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Book, Compass, Smiley } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -14,51 +15,9 @@ interface DynamicArticleProps {
 }
 
 const CategoryIcons = {
-  gods: (
-    <svg
-      className="w-6 h-6"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M12 3L3 9V21H21V9L12 3Z" stroke="currentColor" strokeWidth="2" />
-      <path d="M12 8V16M8 12H16" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  ),
-  beings: (
-    <svg
-      className="w-6 h-6"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <path
-        d="M8 14C8.5 15.5 10 16.5 12 16.5C14 16.5 15.5 15.5 16 14"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <path d="M9 10H9.01M15 10H15.01" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  ),
-  realms: (
-    <svg
-      className="w-6 h-6"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3 12H21M12 3V21M12 3L21 12M12 3L3 12"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-    </svg>
-  ),
+  gods: <Book weight="duotone" className="w-6 h-6" />,
+  beings: <Smiley weight="duotone" className="w-6 h-6" />,
+  realms: <Compass weight="duotone" className="w-6 h-6" />,
 };
 
 export const DynamicArticle = ({ slug, category }: DynamicArticleProps) => {
