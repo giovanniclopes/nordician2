@@ -1,21 +1,54 @@
 import classNames from "classnames";
+import { motion } from "framer-motion";
 
 interface ButtonProps {
   title: string;
-  type?: "PRIMARY" | "SECUNDARY";
+  type: "PRIMARY" | "SECUNDARY";
 }
 
 export function Button({ title, type = "PRIMARY", ...rest }: ButtonProps) {
   return (
-    <button
-      className={classNames(
-        type === "PRIMARY"
-          ? "py-4 px-24 bg-red-400 text-gray-500 border-[3px] border-transparent rounded-md text-3xl font-bold transition-all hover:bg-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3"
-          : "py-4 px-24 bg-transparent border-[3px] border-red-400 rounded-md text-red-400 text-3xl font-bold transition-all hover:border-opacity-80 hover:text-opacity-80 mbl:text-2xl mbl:px-9 mbl:py-3"
-      )}
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{
+        type: "spring",
+        stiffness: 400,
+        damping: 25,
+      }}
+      className={`
+        relative overflow-hidden px-8 py-3 rounded-lg font-poppins text-lg font-semibold tracking-wider
+        transition-all duration-500 ease-out transform
+        ${
+          type === "PRIMARY"
+            ? "bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600"
+            : "bg-transparent border-2 border-red-500/30 text-red-400 hover:border-red-400 hover:text-red-300"
+        }
+      `}
+      {...rest}
     >
-      {title}
-    </button>
+      <span className="relative z-10">{title}</span>
+
+      <div
+        className={`
+        absolute inset-0 -z-10 transition-opacity duration-500 ease-out opacity-0
+        bg-[url('/src/assets/mythology/rune-pattern.svg')] bg-repeat bg-center
+        hover:opacity-10
+      `}
+      />
+
+      <div
+        className={`
+        absolute inset-0 -z-20 transition-opacity duration-500 ease-out opacity-0
+        ${
+          type === "PRIMARY"
+            ? "bg-gradient-to-r from-red-500/50 to-red-600/50 blur-xl"
+            : "bg-gradient-to-r from-red-500/20 to-red-600/20 blur-lg"
+        }
+        hover:opacity-100
+      `}
+      />
+    </motion.button>
   );
 }
 

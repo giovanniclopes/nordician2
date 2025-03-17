@@ -1,89 +1,124 @@
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
-import Logo2 from "../assets/logo2.png";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { CloseIcon, MenuIcon } from "./Icons";
 
-export function Navbar() {
-  const [togglerNav, setTogglerNav] = useState(false);
-  const [fix, setFix] = useState(false);
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
-  function setFixed() {
-    if (window.scrollY >= 150) {
-      setFix(true);
-    } else {
-      setFix(false);
-    }
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
 
-  window.addEventListener("scroll", setFixed);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const clickHandler = () => {
-    setTogglerNav(!togglerNav);
-  };
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
-  let activeStyle = {
-    textDecoration: "underline",
-    color: "white",
-  };
+  const navLinks = [
+    { title: "Home", path: "/" },
+    { title: "Mitologia", path: "/mythology" },
+    { title: "História", path: "/history" },
+    // { title: "Deuses", path: "/gods" },
+    // { title: "Criaturas", path: "/beings" },
+    // { title: "Reinos", path: "/realms" },
+  ];
 
   return (
-    <header>
-      <nav
-        className={
-          fix
-            ? "z-50 fixed top-0 w-full flex items-center justify-between h-max py-3 px-8 mx-auto backdrop-blur-sm bg-gray-600/80 text-white border-b border-red-400 border-opacity-30 transition-all md:items-center mbl:px-4"
-            : "z-50 fixed top-0 w-full flex items-center justify-between h-24 py-3 px-8 mx-auto backdrop-blur-0 bg-gray-600/20 text-white border-b-2 border-transparent transition-all md:items-center mbl:px-4"
-        }
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          isScrolled
+            ? "bg-gray-900/80 backdrop-blur-lg shadow-lg"
+            : "bg-transparent"
+        }`}
       >
-        <Link to="/">
-          <img
-            className="mbl:w-8"
-            src={Logo2}
-            width={40}
-            alt="Nordician Logo"
-          />
-        </Link>
-        <div
-          className={
-            togglerNav
-              ? "absolute left-0 top-0 w-screen mt-20 border-t border-red-400 p-6 flex items-left flex-col gap-4 text-gray-300 font-nordica text-2xl bg-gray-600 md:flex md:items-center"
-              : "hidden gap-4 text-gray-300 font-nordica text-2xl md:flex md:items-center"
-          }
-        >
-          <NavLink
-            className="transition-all hover:text-white"
-            onClick={clickHandler}
-            to="/"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className="transition-all hover:text-white"
-            onClick={clickHandler}
-            to="/mythology"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Mitologia
-          </NavLink>
-          <NavLink
-            className="transition-all hover:text-white"
-            onClick={clickHandler}
-            to="/reality"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            Realidade
-          </NavLink>
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center h-20">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <motion.img
+                src={logo}
+                alt="Logo"
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
+                whileHover={{ rotate: [0, -10, 10, -5, 0] }}
+                transition={{ duration: 0.5 }}
+              />
+            </Link>
+
+            <div className="hidden md:flex items-center space-x-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-4 py-2 rounded-lg text-lg transition-all duration-200 font-medium hover:bg-white/10 ${
+                    location.pathname === link.path
+                      ? "text-red-400 bg-white/5"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </div>
+
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/10"
+            >
+              {isOpen ? (
+                <CloseIcon
+                  weight="bold"
+                  className="text-red-400 hover:text-red-300 transition-colors"
+                />
+              ) : (
+                <MenuIcon
+                  weight="bold"
+                  className="text-red-400 hover:text-red-300 transition-colors"
+                />
+              )}
+            </motion.button>
+          </div>
+
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden overflow-hidden"
+              >
+                <div className="py-4 space-y-1">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`block px-4 py-2 text-lg rounded-lg transition-colors duration-200 ${
+                        location.pathname === link.path
+                          ? "text-red-400 bg-white/5"
+                          : "text-gray-300 hover:text-white hover:bg-white/10"
+                      }`}
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <button
-          className=" inline transition-all md:hidden"
-          onClick={clickHandler}
-        >
-          {togglerNav ? <XMarkIcon width={27} /> : <Bars3Icon width={27} />}
-        </button>
-      </nav>
-    </header>
+      </motion.nav>
+      <div className="h-20" />
+    </>
   );
 }
-
-export default Navbar;

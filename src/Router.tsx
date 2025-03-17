@@ -1,73 +1,75 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound";
-
-import { Games } from "./pages/Games";
 import { Home } from "./pages/Home";
 import { Mythology } from "./pages/Mythology";
-import { Reality } from "./pages/Reality";
-
-import { Beings } from "./pages/mythology/Beings";
+import { DynamicArticle } from "./components/DynamicArticle";
 import { Gods } from "./pages/mythology/Gods";
+import { Beings } from "./pages/mythology/Beings";
 import { Realms } from "./pages/mythology/Realms";
+import { useLoading } from "./components/LoadingProvider";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import Alfheim from "./pages/mythology/realms/Alfheim";
-import Asgard from "./pages/mythology/realms/Asgard";
-import Helheim from "./pages/mythology/realms/Helheim";
-import Jotunheim from "./pages/mythology/realms/Jotunheim";
-import Midgard from "./pages/mythology/realms/Midgard";
-import Musphelheim from "./pages/mythology/realms/Musphelheim";
-import Niflheim from "./pages/mythology/realms/Niflheim";
-import Svartalfheim from "./pages/mythology/realms/Svartalfheim";
-import Vanaheim from "./pages/mythology/realms/Vanaheim";
+function NavigationWrapper({ children }: { children: React.ReactNode }): JSX.Element {
+  const { setLoading } = useLoading();
+  const navigate = useNavigate();
 
-import Angrboda from "./pages/mythology/beings/Angrboda";
-import Hel from "./pages/mythology/beings/Hel";
-import Jormungandr from "./pages/mythology/beings/Jormungandr";
-import Surtr from "./pages/mythology/beings/Surtr";
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest("a");
+      if (link && link.href && link.href.startsWith(window.location.origin)) {
+        e.preventDefault();
+        setLoading(true);
+        setTimeout(() => {
+          navigate(link.href.replace(window.location.origin, ""));
+        }, 200);
+      }
+    };
 
-import Odin from "./pages/mythology/gods/Odin";
-import Tyr from "./pages/mythology/gods/Tyr";
-import { Freya } from './pages/mythology/gods/Freya';
-import Thor from "./pages/mythology/gods/Thor";
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, [navigate, setLoading]);
+
+  return <>{children}</>;
+}
 
 export function Router() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/mythology" element={<Mythology />} />
-      {/* <Route path="/reality" element={<Reality />} /> */}
-      {/* <Route path="/games" element={<Games />} /> */}
+    <NavigationWrapper>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mythology" element={<Mythology />} />
+        <Route path="/mythology/gods" element={<Gods />} />
+        <Route path="/mythology/beings" element={<Beings />} />
+        <Route path="/mythology/realms" element={<Realms />} />
+        <Route
+          path="/mythology/gods/:slug"
+          element={<CategoryArticleWrapper category="gods" />}
+        />
+        <Route
+          path="mythology//beings/:slug"
+          element={<CategoryArticleWrapper category="beings" />}
+        />
+        <Route
+          path="/mythology/realms/:slug"
+          element={<CategoryArticleWrapper category="realms" />}
+        />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </NavigationWrapper>
+  );
+}
 
-      {/* info pages */}
-      <Route path="/realms" element={<Realms />} />
-      <Route path="/beings" element={<Beings />} />
-      <Route path="/gods" element={<Gods />} />
+interface CategoryArticleWrapperProps {
+  category: "gods" | "beings" | "realms";
+}
 
-      {/* Error */}
-      <Route path="*" element={<PageNotFound />} />
-
-      {/* Realms */}
-      <Route path="/realms/alfheim" element={<Alfheim />} />
-      <Route path="/realms/asgard" element={<Asgard />} />
-      <Route path="/realms/helheim" element={<Helheim />} />
-      <Route path="/realms/jotunheim" element={<Jotunheim />} />
-      <Route path="/realms/midgard" element={<Midgard />} />
-      <Route path="/realms/musphelheim" element={<Musphelheim />} />
-      <Route path="/realms/niflheim" element={<Niflheim />} />
-      <Route path="/realms/svartalfheim" element={<Svartalfheim />} />
-      <Route path="/realms/vanaheim" element={<Vanaheim />} />
-
-      {/* Beings */}
-      <Route path="/beings/angrboda" element={<Angrboda />} />
-      <Route path="/beings/hel" element={<Hel />} />
-      <Route path="/beings/jormungandr" element={<Jormungandr />} />
-      <Route path="/beings/surtr" element={<Surtr />} />
-
-      {/* Gods */}
-      <Route path="/gods/odin" element={<Odin />} />
-      <Route path="/gods/freya" element={<Freya />} />
-      <Route path="/gods/thor" element={<Thor />} />
-      <Route path="/gods/tyr" element={<Tyr />} />
-    </Routes>
+function CategoryArticleWrapper({ category }: CategoryArticleWrapperProps) {
+  const { slug } = useParams();
+  return slug ? (
+    <DynamicArticle slug={slug} category={category} />
+  ) : (
+    <PageNotFound />
   );
 }
